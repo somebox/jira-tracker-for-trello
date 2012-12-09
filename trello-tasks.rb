@@ -9,6 +9,7 @@ require 'ap'
 require 'rest_client'
 
 require 'jira'
+require 'bot'
 
 options = {
   :credentials => 'credentials.yml',
@@ -61,45 +62,39 @@ end
 # board_id = settings[:board_id]
 
 # puts @dday
-# Set authenttication
+# Set authentication
 Trello::Authorization.const_set :AuthPolicy, OAuthPolicy
 OAuthPolicy.consumer_credential = OAuthCredential.new credentials[:public_key],credentials[:secret]
 OAuthPolicy.token = OAuthCredential.new credentials[:key], nil
 
+@jira_tickets
 
-def tracked_cards(member_name)
+def update_comments(trello_card, jira_ticket)
+  puts "JIRA #{jira_ticket.ticket_id} : #{jira_ticket.summary}"
+  jira_ticket.comments.each do |comment|
+    first_line = "**#{comment.created.strftime('%c')}: #{comment.author}**"
+    trello_card.add_comment("#{first_line}\n#{comment.body}")
+  end
+end
+
+def scan_trello_cards(member_name)
   member = Trello::Member.find(member_name)
   cards = member.cards
-  jira_cards = []
+  tracked = []
   cards.each do |card|
     card.actions(:filter=>'commentCard').each do |action|
-      p action
       text = action.data['text']
       if text.match(/track jira\:([\d\w-]+)/i)
-        puts "JIRA #{$1} referenced"
-        jira_cards << card
+        puts text
+        ticket = Jira::Ticket.get($1)
+        update_comments(card, ticket)
       end
     end
   end
-  jira_cards
 end
 
 puts "updating data from JIRAs"
-
-def update_comments(trello_card, jira_ticket)
-  trello_card = data[:card]
-  ticket = Jira::Ticket.get(data[:jira_id])
-  puts "JIRA #{ticket.ticket_id} : #{ticket.summary}"
-  ticket.comments.each do |comment|
-    first_line = "**#{comment.created.strftime('%c')}: #{comment.author}**"
-    card.add_comment("#{first_line}\n#{comment.body}")
-  end
-end
-
-tracked_cards('jirabot').each do |card|
-  
-end
-
+scan_trello_cards('jirabot')
 
 # def dday(days=0)
 
