@@ -3,15 +3,15 @@ $:.push File.expand_path("../lib", __FILE__)
 require "version"
 
 Gem::Specification.new do |s|
-  s.name        = "mf60"
+  s.name        = "trello-jira-bot"
   s.version     = TrelloJira::VERSION
   s.authors     = ["Jeremy Seitz"]
   s.email       = ["jeremy@somebox.com"]
-  s.homepage    = "https://github.com/somebox/trello-jira"
+  s.homepage    = "https://github.com/local-ch/trello-jira-bridge"
   s.summary     = %q{Ruby library and command-line tool for integrating workflow between Trello and JIRA.}
   s.description = %q{}
 
-  s.rubyforge_project = "trello-jira"
+  s.rubyforge_project = "trello-jira-bot"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

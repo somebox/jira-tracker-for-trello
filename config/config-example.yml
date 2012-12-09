@@ -1,0 +1,12 @@
+trello:
+  name: jirabot
+  email: jirabot@example.com
+  secret: 45fe8c7b87afd904e81b088168861c6396eead6bb03eb2905640ce002bb4ce60
+  key: dc10e4abcf391a9c9787c7f8197dfb5c65db1b8e7243c38b25c0b2df7d772544
+  public_key: 601223843e8a22fadaf4db2edf9370da
+jira:
+  url: http://jira.example.com
+  project: ENG
+  user: trello_bot
+  password: secret
+
