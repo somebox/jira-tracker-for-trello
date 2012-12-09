@@ -1,0 +1,7 @@
+---
+- :name: Venue
+  :description: we really need to find a venue
+  :due: -30
+- :name: Select Final program
+  :description: once talks have been submitted we can announce the schedule
+  :checklist: linkedin, mailinglist, twitter, blog on website
