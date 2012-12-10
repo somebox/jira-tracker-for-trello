@@ -1,8 +1,5 @@
 require 'rubygems'
 require 'bundler'
-require "bundler/gem_tasks"
-require 'rake/testtask'
-require 'rake/clean'
 
 begin
   Bundler.setup(:default, :development)
@@ -12,7 +9,15 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
+require "bundler/gem_tasks"
+require 'rake/testtask'
+require 'rake/clean'
+require 'standalone_migrations'
+
+
+StandaloneMigrations::Tasks.load_tasks
 require 'bundler/gem_tasks'
+
 
 # load 'tasks/*.rake'
 Dir.glob('tasks/**/*.rake').each { |r| Rake.application.add_import r }

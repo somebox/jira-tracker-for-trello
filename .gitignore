@@ -1,2 +1,5 @@
 log/*
 .rvmrc
+db/structure.sql
+config/settings.yml
+db/data*
