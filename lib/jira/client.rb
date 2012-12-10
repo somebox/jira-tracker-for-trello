@@ -5,9 +5,9 @@ module Jira
     config_accessor :site, :user, :password
 
     def self.client
-      @client ||= RestClient::Resource.new("#{self.class.site}/rest/api/latest/issue/", 
-                  :user => self.class.config.user,
-                  :password => self.class.config, 
+      @client ||= RestClient::Resource.new("#{self.config.site}/rest/api/latest/issue/", 
+                  :user => self.config.user,
+                  :password => self.config.password, 
                   :content_type => 'application/json'
                 )
     end

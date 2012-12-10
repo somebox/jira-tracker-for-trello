@@ -1,6 +1,6 @@
 module Jira
   class Ticket
-    attr_accessor :ticket_id, :api_link, :summary, :description
+    attr_accessor :ticket_id, :api_link, :title, :description
     attr_accessor :issue_type, :fix_versions, :priority, :status, :project
     attr_accessor :created, :updated
     attr_accessor :comments
@@ -11,7 +11,7 @@ module Jira
       self.ticket_id        = json["key"]
       self.api_link         = json["self"]
 
-      self.summary          = fields["summary"]["value"]
+      self.title            = fields["summary"]["value"]
       self.issue_type       = fields["issuetype"]["value"]["name"]
       self.fix_versions     = fields["fixVersions"]["value"].map{|v| v["name"]}
       self.priority         = fields["priority"]["value"]["name"]
@@ -29,11 +29,11 @@ module Jira
     end
 
     def web_link
-      "#{SITE}/browse/#{self.ticket_id}"
+      "#{Jira::Client.config.site}/browse/#{self.ticket_id}"
     end
 
     def summary
-      "JIRA #{jira_ticket.ticket_id} : #{jira_ticket.summary}"
+      "JIRA #{self.ticket_id} : #{self.title}"
     end
 
     def self.get(ticket_id)

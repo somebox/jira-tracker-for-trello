@@ -5,12 +5,12 @@ $LOAD_PATH.unshift 'lib'
 require 'bundler'
 Bundler.setup
 
-require 'awesome_print'
+require 'trello_jira_bridge'
 require 'optparse'
 
-# local libs
-require 'trello_jira_bridge'
-
+options = {
+  config: 'config/config.yml'
+}
 optparse = OptionParser.new do |opts|
   opts.on('-h','--help','Display this screen') do
     puts opts
@@ -25,12 +25,6 @@ optparse.parse!
 
 TrelloJiraBridge.load_config(options[:config])
 
-include Trello
-include Trello::Authorization
-Trello::Authorization.const_set :AuthPolicy, OAuthPolicy
-OAuthPolicy.consumer_credential = OAuthCredential.new credentials[:public_key],credentials[:secret]
-OAuthPolicy.token = OAuthCredential.new credentials[:key], nil
-
 puts "updating data from JIRAs"
-Bot.scan_trello_cards('jirabot')
+Bot.scan_trello_cards
 
