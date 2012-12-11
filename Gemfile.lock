@@ -37,6 +37,7 @@ GEM
     arel (3.0.2)
     awesome_print (1.1.0)
     builder (3.0.4)
+    diff-lcs (1.1.3)
     erubis (2.7.0)
     hike (1.2.1)
     i18n (0.6.1)
@@ -64,6 +65,14 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rspec (2.12.0)
+      rspec-core (~> 2.12.0)
+      rspec-expectations (~> 2.12.0)
+      rspec-mocks (~> 2.12.0)
+    rspec-core (2.12.1)
+    rspec-expectations (2.12.0)
+      diff-lcs (~> 1.1.3)
+    rspec-mocks (2.12.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -87,6 +96,7 @@ DEPENDENCIES
   awesome_print
   json
   rest-client
+  rspec
   ruby-trello!
   sqlite3
   standalone_migrations

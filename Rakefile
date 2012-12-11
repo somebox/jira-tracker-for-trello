@@ -10,12 +10,11 @@ rescue Bundler::BundlerError => e
 end
 
 require "bundler/gem_tasks"
-require 'rake/testtask'
+require 'rspec/core/rake_task'
 require 'rake/clean'
-require 'standalone_migrations'
+#require 'standalone_migrations'
 
-
-StandaloneMigrations::Tasks.load_tasks
+#StandaloneMigrations::Tasks.load_tasks
 require 'bundler/gem_tasks'
 
 
