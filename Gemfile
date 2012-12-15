@@ -2,13 +2,25 @@
 source "http://rubygems.org"
 
 gem "activesupport"
-gem "activerecord"
-gem "standalone_migrations"
-gem "sqlite3"
-
-gem "rspec"
+gem "activemodel"
+# gem "activerecord"
+# gem "standalone_migrations"
+# gem "sqlite3"
 
 gem "ruby-trello", :git => 'git@github.com:somebox/ruby-trello.git'
 gem "awesome_print"
 gem "rest-client"
 gem "json"
+gem "rspec"
+
+group :development do
+  gem 'wirble'
+end
+
+group :test do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem "factory_girl", "2.3.2"
+  gem 'rb-fsevent', '~> 0.9.1'
+end

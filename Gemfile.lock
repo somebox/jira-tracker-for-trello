@@ -12,57 +12,43 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    actionpack (3.2.9)
-      activemodel (= 3.2.9)
-      activesupport (= 3.2.9)
-      builder (~> 3.0.0)
-      erubis (~> 2.7.0)
-      journey (~> 1.0.4)
-      rack (~> 1.4.0)
-      rack-cache (~> 1.2)
-      rack-test (~> 0.6.1)
-      sprockets (~> 2.2.1)
     activemodel (3.2.9)
       activesupport (= 3.2.9)
       builder (~> 3.0.0)
-    activerecord (3.2.9)
-      activemodel (= 3.2.9)
-      activesupport (= 3.2.9)
-      arel (~> 3.0.2)
-      tzinfo (~> 0.3.29)
     activesupport (3.2.9)
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.2)
-    arel (3.0.2)
     awesome_print (1.1.0)
     builder (3.0.4)
+    coderay (1.0.8)
     diff-lcs (1.1.3)
-    erubis (2.7.0)
-    hike (1.2.1)
+    factory_girl (2.3.2)
+      activesupport
+    guard (1.5.4)
+      listen (>= 0.4.2)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      thor (>= 0.14.6)
+    guard-bundler (1.0.0)
+      bundler (~> 1.0)
+      guard (~> 1.1)
+    guard-rspec (2.3.1)
+      guard (>= 1.1)
+      rspec (~> 2.11)
     i18n (0.6.1)
-    journey (1.0.4)
     json (1.7.5)
+    listen (0.6.0)
+    lumberjack (1.0.2)
+    method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.4.0)
     oauth (0.4.7)
-    rack (1.4.1)
-    rack-cache (1.2)
-      rack (>= 0.4)
-    rack-ssl (1.3.2)
-      rack
-    rack-test (0.6.2)
-      rack (>= 1.0)
-    railties (3.2.9)
-      actionpack (= 3.2.9)
-      activesupport (= 3.2.9)
-      rack-ssl (~> 1.3.2)
-      rake (>= 0.8.7)
-      rdoc (~> 3.4)
-      thor (>= 0.14.6, < 2.0)
-    rake (10.0.2)
-    rdoc (3.12)
-      json (~> 1.4)
+    pry (0.9.10)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.3.1)
+    rb-fsevent (0.9.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.12.0)
@@ -73,30 +59,24 @@ GEM
     rspec-expectations (2.12.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.12.0)
-    sprockets (2.2.2)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
-      rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
-    standalone_migrations (2.0.2)
-      activerecord (~> 3.2.6)
-      railties (~> 3.2.6)
-      rake
+    slop (3.3.3)
     thor (0.16.0)
-    tilt (1.3.3)
-    tzinfo (0.3.35)
+    wirble (0.1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activemodel
   activesupport
   awesome_print
+  factory_girl (= 2.3.2)
+  guard
+  guard-bundler
+  guard-rspec
   json
+  rb-fsevent (~> 0.9.1)
   rest-client
   rspec
   ruby-trello!
-  sqlite3
-  standalone_migrations
+  wirble

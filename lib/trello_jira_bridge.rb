@@ -5,7 +5,8 @@ require 'yaml'
 require 'optparse'
 require 'rest_client'
 require 'active_support'
-require 'active_record'
+require 'active_model'
+# require 'active_record'
 
 require 'bot/command'
 require 'bot/tracked_card'
@@ -30,8 +31,8 @@ module TrelloJiraBridge
 
     Bot::Trello.setup_oauth!
 
-    ActiveRecord::Base.logger = Logger.new('log/debug.log')
-    ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
-    ActiveRecord::Base.establish_connection('development')
+#    ActiveRecord::Base.logger = Logger.new('log/debug.log')
+#    ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
+#    ActiveRecord::Base.establish_connection('development')
   end
 end
