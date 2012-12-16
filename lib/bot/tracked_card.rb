@@ -1,10 +1,10 @@
 module Bot
   class TrackedCard
-    attr_accessor :trello_card, :trello_bot_username
+    attr_accessor :trello_card, :trello_bot
 
-    def initialize(trello_card, trello_bot_username)
+    def initialize(trello_card, trello_bot)
       self.trello_card = trello_card
-      self.trello_bot_username = trello_bot_username
+      self.trello_bot = trello_bot
     end
 
     # comments are really Trello::Action instances, ordered newest to oldest
@@ -13,13 +13,17 @@ module Bot
     end
 
     def bot_comments
-      self.comments.select{|c| c.member_creator_id == self.trello_bot_username}
+      self.comments.select{|c| c.member_creator_id == self.trello_bot.user_id}
+    end
+
+    def user_comments
+      self.comments - self.bot_comments
     end
 
     def command_comments
-      self.new_command_comments.select do |comment| 
+      self.user_comments.select do |comment| 
         text = comment.data['text']
-        Bot::Command.scan(self.trello_bot_username, text)
+        Bot::Command.scan(self.trello_bot.username, text)
       end
     end
 

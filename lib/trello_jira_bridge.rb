@@ -34,5 +34,7 @@ module TrelloJiraBridge
 #    ActiveRecord::Base.logger = Logger.new('log/debug.log')
 #    ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
 #    ActiveRecord::Base.establish_connection('development')
+
+    puts 'Configuration loaded.'
   end
 end

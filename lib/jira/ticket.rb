@@ -14,7 +14,7 @@ module Jira
       self.title            = fields["summary"]["value"]
       self.issue_type       = fields["issuetype"]["value"]["name"]
       self.fix_versions     = fields["fixVersions"]["value"].map{|v| v["name"]}
-      self.priority         = fields["priority"]["value"]["name"]
+      self.priority         = fields["priority"] ? fields["priority"]["value"]["name"] : ''
       self.description      = fields["description"]["value"]
       self.status           = fields["status"]["value"]["name"]
       self.project          = fields["project"]["value"]["name"]
@@ -22,7 +22,7 @@ module Jira
       self.updated          = DateTime.parse(fields["updated"]["value"])
 
       self.comments = fields["comment"]["value"].map do |comment_json|
-        Jira::Comment.new(comment_json, self)
+        Jira::Comment.new(comment_json)
       end
 
       self
@@ -30,6 +30,10 @@ module Jira
 
     def web_link
       "#{Jira::Client.config.site}/browse/#{self.ticket_id}"
+    end
+
+    def comment_web_link(comment)
+      "#{self.web_link}?focusedCommentId=#{comment.comment_id}#comment-#{comment.comment_id}"
     end
 
     def summary

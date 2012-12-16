@@ -14,15 +14,24 @@ module Bot
 
     def initialize
       self.member = ::Trello::Member.find(self.config.user)
-      self.cards  = self.member.cards.map{|card| Bot::TrackedCard.new(card, self.member)}
+      self.cards  = self.member.cards.map{|card| Bot::TrackedCard.new(card, self)}
     end
 
     def self.update_comments(trello_card, jira_ticket)
       puts jira_ticket.summary
       jira_ticket.comments.each do |comment|
-        text = [comment.header, comment.body, comment.web_link].join("\n")
+        link = jira_ticket.comment_web_link(comment)
+        text = [comment.header, comment.body, link].join("\n")
         trello_card.add_comment("#{jira_ticket.ticket_id}: #{text}")
       end
+    end
+
+    def username
+      self.member.username
+    end
+
+    def user_id
+      self.member.id
     end
 
     # The bot will look for commands and respond to them.
