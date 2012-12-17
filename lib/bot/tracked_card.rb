@@ -19,8 +19,7 @@ module Bot
     end
 
     def summary
-      title = self.trello_card.description
-      title = '(no description)' if title.blank?
+      title = self.trello_card.name
       "##{self.short_id}: #{title}"
     end
 
@@ -69,8 +68,23 @@ module Bot
       self.trello_card.add_comment(text)
     end
 
-    def update_card_from_jira(jira_ticket)
+    # If the ticket in JIRA has been marked as "resolved" since our last posting,
+    # comment on the Trello ticket with the date.
+    def update_resolution_status(ticket_id)
+      jira_ticket = Jira::Ticket.get(ticket_id)
+      if jira_ticket.resolution_date 
+        if jira_ticket.resolution_date > self.last_posting_date
+          timestamp = jira_ticket.resolution_date.strftime('%v %R')
+          self.add_comment("#{jira_ticket.ticket_id} was RESOLVED on #{timestamp}.")
+          return true
+        end
+      end
+      false
+    end
+
+    def update_comments_from_jira(ticket_id)
       is_updated = false
+      jira_ticket = Jira::Ticket.get(ticket_id)
       jira_ticket.comments_since(self.last_posting_date).each do |comment|
         link = jira_ticket.comment_web_link(comment)
         text = [comment.header, comment.body, link].join("\n")
@@ -78,6 +92,16 @@ module Bot
         is_updated = true
       end
       is_updated
+    end
+
+    def import_content_from_jira(ticket_id)
+      jira_ticket = Jira::Ticket.get(ticket_id)
+      description = jira_ticket.description.gsub('{code}','')
+      description = "** Imported from #{jira_ticket.web_link} **\n\n----\n\n#{description}"
+      self.trello_card.description = description
+      self.trello_card.name = jira_ticket.summary
+      self.trello_card.save
+      @comments = []  # force a refresh on next request
     end
 
     # Bot Commands
@@ -115,7 +139,7 @@ module Bot
       # update tracking status
       self.commands.each do |command|
         case command.name
-        when 'track'
+        when 'track', 'import'
           self.track_jira(command.ticket_id)
         when 'untrack'
           self.untrack_jira(command.ticket_id)
@@ -129,6 +153,9 @@ module Bot
         self.trello_card.add_comment("JIRA ticket #{command.ticket_id} is now being tracked.")
       when 'untrack'
         self.trello_card.add_comment("JIRA ticket #{command.ticket_id} is no longer being tracked.")
+      when 'import'
+        self.import_content_from_jira(command.ticket_id)
+        self.trello_card.add_comment("JIRA ticket #{command.ticket_id} was imported and is being tracked.")
       when 'comment'
       when 'close'
         warn "'#{command.name}' command not implemented"

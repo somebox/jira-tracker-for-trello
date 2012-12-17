@@ -2,7 +2,7 @@ module Jira
   class Ticket
     attr_accessor :ticket_id, :api_link, :title, :description
     attr_accessor :issue_type, :fix_versions, :priority, :status, :project
-    attr_accessor :created, :updated
+    attr_accessor :created, :updated, :resolution_date
     attr_accessor :comments
 
     def initialize(json)
@@ -20,6 +20,7 @@ module Jira
       self.project          = fields["project"]["value"]["name"]
       self.created          = DateTime.parse(fields["created"]["value"])
       self.updated          = DateTime.parse(fields["updated"]["value"])
+      self.resolution_date  = fields["resolutiondate"] ? DateTime.parse(fields["resolutiondate"]["value"]) : nil
 
       self.comments = fields["comment"]["value"].map do |comment_json|
         Jira::Comment.new(comment_json)
@@ -43,7 +44,7 @@ module Jira
     end
 
     def summary
-      "JIRA #{self.ticket_id} : #{self.title}"
+      "JIRA #{self.ticket_id}: #{self.title}"
     end
 
     def comments_since(date)

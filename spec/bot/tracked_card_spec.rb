@@ -96,13 +96,24 @@ describe Bot::TrackedCard do
   context "update card from jira" do
     before do
       stub_jira_ticket_request('WS-1230')
-      @jira_ticket = Jira::Ticket.get('WS-1230')
       @tracked_card.should_receive(:last_posting_date).and_return(DateTime.parse('2012-11-01'))
     end
 
     it "should post comments" do
       @tracked_card.trello_card.should_receive(:add_comment).exactly(3).times
-      @tracked_card.update_card_from_jira(@jira_ticket)
+      @tracked_card.update_comments_from_jira('WS-1230')
+    end
+  end
+
+  context "import card from jira" do
+    before do
+      stub_jira_ticket_request('WS-1230')
+      @tracked_card.trello_card.should_receive(:save).and_return(true)
+    end
+
+    it "should import details" do
+      @tracked_card.import_content_from_jira('WS-1230')
+      @tracked_card.trello_card.name.should =~ /WS-1230: Adress mismatch on map.local.ch/
     end
   end
 

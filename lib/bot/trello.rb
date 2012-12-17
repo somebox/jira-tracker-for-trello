@@ -33,11 +33,11 @@ module Bot
     def update
       self.cards.each do |tracked_card|
         # update tracking status
-        puts " * Scanning Trello #{tracked_card.summary}"
+        puts " * Scanning Trello #{tracked_card.short_id}"
         tracked_card.update_tracking_status
         ticket_list = tracked_card.jira_tickets.join(', ')
-        ticket_list = '(none)' if ticket_list.blank?
-        puts "   Tracked JIRA tickets: #{ticket_list}"
+        ticket_list = 'none' if ticket_list.blank?
+        puts "   (#{ticket_list})"
 
         # run new commands
         tracked_card.new_commands.each do |command|
@@ -47,9 +47,15 @@ module Bot
 
         # add any new comments
         tracked_card.jira_tickets.each do |ticket_id|
-          jira_ticket = Jira::Ticket.get(ticket_id)
-          if tracked_card.update_card_from_jira(jira_ticket)
+          if tracked_card.update_comments_from_jira(ticket_id)
             puts " * updating data from JIRA #{ticket_id}"
+          end
+        end
+
+        # check resolutions
+        tracked_card.jira_tickets.each do |ticket_id|
+          if tracked_card.update_resolution_status(ticket_id)
+            puts " #* JIRA #{ticket_id} marked as RESOLVED"
           end
         end
       end

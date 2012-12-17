@@ -2,7 +2,7 @@ module Bot
   class Command
     attr_accessor :name, :ticket_id
 
-    SUPPORTED_COMMANDS = %w(track untrack comment close import)
+    SUPPORTED_COMMANDS = %w(track untrack import) # TODO: add close, comment
 
     def initialize(name, ticket_id)
       self.name = name

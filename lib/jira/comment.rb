@@ -14,7 +14,7 @@ module Jira
     end
 
     def header
-      "Comment by #{self.author} @ #{self.created.strftime('%R %v')}:"
+      "Comment by #{self.author}, #{self.created.strftime('%v %R')}:"
     end
   end
 end  
