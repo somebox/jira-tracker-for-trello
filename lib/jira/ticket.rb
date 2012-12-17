@@ -28,6 +28,12 @@ module Jira
       self
     end
 
+    def self.get(ticket_id)
+      json = Jira::Client.get(ticket_id)
+      self.new(json)
+    end
+
+
     def web_link
       "#{Jira::Client.config.site}/browse/#{self.ticket_id}"
     end
@@ -40,9 +46,8 @@ module Jira
       "JIRA #{self.ticket_id} : #{self.title}"
     end
 
-    def self.get(ticket_id)
-      json = Jira::Client.get(ticket_id)
-      self.new(json)
+    def comments_since(date)
+      self.comments.select{|c| c.created > date}
     end
   end
 end  

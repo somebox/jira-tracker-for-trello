@@ -16,7 +16,7 @@ end
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-# Dir.glob(File.expand_path("../support/**/*.rb", __FILE__)).each {|f| require f}
+Dir.glob(File.expand_path("../support/**/*.rb", __FILE__)).each {|f| require f}
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
@@ -37,4 +37,14 @@ RSpec.configure do |config|
     %r{/gems/ruby.*/gems/rspec.*},
     /spec\/spec_helper\.rb/,
   ]
+
+  # setup test environment
+  config.before(:suite) do
+    Bot::Trello.config.username = 'bot'
+
+    Jira::Client.config.site      = 'https://jira.example.com'
+    Jira::Client.config.user      = 'bot'
+    Jira::Client.config.password  = 'secret'
+  end
+
 end

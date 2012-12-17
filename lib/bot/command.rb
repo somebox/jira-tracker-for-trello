@@ -9,15 +9,25 @@ module Bot
       self.ticket_id = ticket_id
     end
 
-    def self.scan(bot_username, command_string)
+    def summary
+      "#{self.name} #{self.ticket_id}"
+    end
+
+    def self.command_regex
+      bot_username        = Bot::Trello.config.username
       command_matcher     = SUPPORTED_COMMANDS.join('|')
       jira_matcher        = '[\d\w-]+'
-      command_regex       = %r{\@#{bot_username}\s+(#{command_matcher})\s+(#{jira_matcher})}i
-      matches = command_string.match(command_regex)
-      if (matches)
+      %r{\@#{bot_username}\s+(#{command_matcher})\s+(#{jira_matcher})}i
+    end
+
+    def self.extract(command_string)
+      matches = command_string.match(self.command_regex)
+      if matches
         name = matches[1].downcase
         ticket_id = matches[2].upcase
         return Bot::Command.new(name, ticket_id)
+      else
+        return nil
       end
     end
 

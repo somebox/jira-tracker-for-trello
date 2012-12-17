@@ -24,7 +24,7 @@ module TrelloJiraBridge
     Jira::Client.config.user      = @config['jira']['user']
     Jira::Client.config.password  = @config['jira']['password']
 
-    Bot::Trello.config.user       = @config['trello']['user']
+    Bot::Trello.config.username   = @config['trello']['user']
     Bot::Trello.config.secret     = @config['trello']['secret']
     Bot::Trello.config.app_key    = @config['trello']['app_key']
     Bot::Trello.config.public_key = @config['trello']['public_key']

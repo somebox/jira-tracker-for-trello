@@ -7,23 +7,14 @@ module Bot
     include ActiveModel::AttributeMethods
 
     # Trello configuration
-    config_accessor :user
+    config_accessor :username
     config_accessor :secret, :key, :public_key
 
     attr_accessor :member, :cards
 
     def initialize
-      self.member = ::Trello::Member.find(self.config.user)
+      self.member = ::Trello::Member.find(self.config.username)
       self.cards  = self.member.cards.map{|card| Bot::TrackedCard.new(card, self)}
-    end
-
-    def self.update_comments(trello_card, jira_ticket)
-      puts jira_ticket.summary
-      jira_ticket.comments.each do |comment|
-        link = jira_ticket.comment_web_link(comment)
-        text = [comment.header, comment.body, link].join("\n")
-        trello_card.add_comment("#{jira_ticket.ticket_id}: #{text}")
-      end
     end
 
     def username
@@ -39,15 +30,26 @@ module Bot
     # It will post comments and status updates as well.
     # New commands are found by looking for patterns like '@jirabot track ws-2345'
     # that have not yet been responded to.
-    def scan_trello_cards
+    def update
       self.cards.each do |tracked_card|
-        tracked_card.new_commands.each do |comment|
-          Bot::Command.scan(self.config.user, comment.data['text'])
-          if text.match(command_regex)
-            command = $1.downcase
-            ticket_id = $2.upcase
-            ticket = Jira::Ticket.get(ticket_id)
-            update_comments(card, ticket)
+        # update tracking status
+        puts " * Scanning Trello #{tracked_card.summary}"
+        tracked_card.update_tracking_status
+        ticket_list = tracked_card.jira_tickets.join(', ')
+        ticket_list = '(none)' if ticket_list.blank?
+        puts "   Tracked JIRA tickets: #{ticket_list}"
+
+        # run new commands
+        tracked_card.new_commands.each do |command|
+          puts " * processing new command on card #{tracked_card.short_id}: #{command.summary}"
+          tracked_card.run(command)
+        end
+
+        # add any new comments
+        tracked_card.jira_tickets.each do |ticket_id|
+          jira_ticket = Jira::Ticket.get(ticket_id)
+          if tracked_card.update_card_from_jira(jira_ticket)
+            puts " * updating data from JIRA #{ticket_id}"
           end
         end
       end
