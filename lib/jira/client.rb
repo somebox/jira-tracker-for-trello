@@ -16,5 +16,20 @@ module Jira
       response = self.client[ticket_id].get
       JSON.parse(response.body)
     end
+
+    # Downloads a file. Returns a Tempfile 
+    def self.download(url)
+      FileUtils.mkdir_p('tmp/attachments')
+      file = File.open("tmp/attachments/#{File.basename(url)}", 'w')
+      file.binmode
+      file.write RestClient::Request.execute(
+        :method   => :get, 
+        :url      => url, 
+        :user     => Jira::Client.config.user, 
+        :password => Jira::Client.config.password
+      )
+      file.close
+      File.open(file.path)
+    end
   end
 end

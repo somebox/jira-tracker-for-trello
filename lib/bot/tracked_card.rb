@@ -94,13 +94,27 @@ module Bot
       is_updated
     end
 
+    def update_attachments_from_jira(ticket_id)
+      is_updated = false
+      jira_ticket = Jira::Ticket.get(ticket_id)
+      jira_ticket.attachments_since(self.last_posting_date).each do |attachment|
+        file = Jira::Client.download(attachment.content)
+        self.trello_card.add_attachment(file, attachment.filename)
+        is_updated = true
+      end
+      is_updated
+    end
+
     def import_content_from_jira(ticket_id)
       jira_ticket = Jira::Ticket.get(ticket_id)
+      
+      # update card name and description
       description = jira_ticket.description.gsub('{code}','')
       description = "** Imported from #{jira_ticket.web_link} **\n\n----\n\n#{description}"
       self.trello_card.description = description
       self.trello_card.name = jira_ticket.summary
       self.trello_card.save
+
       @comments = []  # force a refresh on next request
     end
 

@@ -2,13 +2,23 @@
 
 This gem provides a way to integrate workflow between Trello and Jira. It is designed for an agile team that uses Trello for daily development and sprint planning, but must reference JIRA tickets related to external dependencies. 
 
-This bot will scan the Trello boards it belongs to, and look for JIRA cards numbers that are referenced in Trello comments. It can update comments, notice when a ticket is closed, re-opened, etc.
+This bot will scan the Trello cards it is assigned to, and look for commands in the comments. 
 
-** Note:this app is still in heavy development. At the moment, it only imports comments to a test board **
+## Features ##
+
+Tracks JIRA tickets in Trello cards. 
+
+A card that is tracking JIRA tickets will be updated with:
+
+* comments with direct links
+* file attachments
+* ticket resolution event (as a comment)
+
+There is an `import` command which is handy for creating new Trello cards from JIRA tickets.
 
 ## Screenshot ##
 
-![trello test board](http://dl.dropbox.com/u/385855/Screenshots/7uev.png)
+![trello test board](http://dl.dropbox.com/u/385855/Screenshots/8pys.png)
 
 ## Installation ##
 
@@ -23,7 +33,7 @@ A Trello card can be set up to track a set of JIRA tickets. Commands are issued 
 
 * `track SYS-1536` : JIRAbot will begin tracking updates to this ticket on the given Trello card.
 
-* `untrack JIRA: SYS-1536` : JIRAbot will stop tracking updates.
+* `untrack JIRA: SYS-1536` : JIRAbot will stop tracking updates. You can also remove the bot from the card.
 
 * `import JIRA: SYS-1536` : JIRAbot will import the description and all comments into the Trello card. After that, the JIRA ticket will be tracked.
 
@@ -31,8 +41,6 @@ Todo:
 * Add a rake task to act as a cron job, which can be called every minute or so for keeping things in sync.
 
 ## Ideas 
-
-* import JIRA attachments as Trello attachments
 
 more commands:
 

@@ -3,3 +3,4 @@ log/*
 db/structure.sql
 config/settings.yml
 db/data*
+tmp/*

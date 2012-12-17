@@ -3,7 +3,9 @@ module Jira
     attr_accessor :ticket_id, :api_link, :title, :description
     attr_accessor :issue_type, :fix_versions, :priority, :status, :project
     attr_accessor :created, :updated, :resolution_date
-    attr_accessor :comments
+
+    # has many
+    attr_accessor :comments, :attachments
 
     def initialize(json)
       fields = json["fields"]
@@ -21,6 +23,10 @@ module Jira
       self.created          = DateTime.parse(fields["created"]["value"])
       self.updated          = DateTime.parse(fields["updated"]["value"])
       self.resolution_date  = fields["resolutiondate"] ? DateTime.parse(fields["resolutiondate"]["value"]) : nil
+
+      self.attachments      = fields["attachment"]["value"].map do |attachment_json| 
+        Jira::Attachment.new(attachment_json)
+      end
 
       self.comments = fields["comment"]["value"].map do |comment_json|
         Jira::Comment.new(comment_json)
@@ -49,6 +55,10 @@ module Jira
 
     def comments_since(date)
       self.comments.select{|c| c.created > date}
+    end
+
+    def attachments_since(date)
+      self.attachments.select{|a| a.created > date}
     end
   end
 end  

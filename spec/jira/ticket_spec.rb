@@ -5,9 +5,11 @@ describe Jira::Ticket do
   before do
     stub_jira_ticket_request('WS-1299')
     stub_jira_ticket_request('WS-1230')
+    stub_jira_ticket_request('WS-1080')
 
     @ticket = Jira::Ticket.get('WS-1299')
     @ticket_with_many_comments = Jira::Ticket.get('WS-1230')
+    @ticket_with_attachments = Jira::Ticket.get('WS-1080')
   end
 
   it 'should parse the ticket id' do
@@ -26,6 +28,8 @@ describe Jira::Ticket do
     @ticket.comments.size.should == 1
     @ticket.comments.first.body.should =~ /duplicate of/
     @ticket.comments.first.created.strftime('%F %T').should == '2012-10-24 17:13:44'
+
+    @ticket_with_many_comments.comments.size.should == 5
   end
 
   it 'should parse the status' do
@@ -40,5 +44,9 @@ describe Jira::Ticket do
   it 'should find comments since a given date' do
     comments = @ticket_with_many_comments.comments_since(DateTime.parse('2012-11-01'))
     comments.count.should == 3
+  end
+
+  it 'should find attachments' do
+    @ticket_with_attachments.attachments.count.should == 1
   end
 end

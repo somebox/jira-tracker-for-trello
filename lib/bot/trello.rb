@@ -48,7 +48,14 @@ module Bot
         # add any new comments
         tracked_card.jira_tickets.each do |ticket_id|
           if tracked_card.update_comments_from_jira(ticket_id)
-            puts " * updating data from JIRA #{ticket_id}"
+            puts " * updating comments from JIRA #{ticket_id}"
+          end
+        end
+
+        # add any new attachments
+        tracked_card.jira_tickets.each do |ticket_id|
+          if tracked_card.update_attachments_from_jira(ticket_id)
+            puts " * updating attachments from JIRA #{ticket_id}"
           end
         end
 
