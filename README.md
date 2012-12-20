@@ -1,10 +1,12 @@
 # Trello/Jira Integration Bot #
 
-This project provides a solution to improve workflow between Trello and Jira. It is designed for an agile team that uses Trello for daily development and sprint planning, but must reference JIRA tickets related to external dependencies or bug reports.
+This project exists to improve workflow between Trello and Jira. It is perfect for an agile team that uses Trello for daily development and sprint planning, but must interact with JIRA for external dependencies or bug reports. From experience, I have learned it is very hard to track issues in both systems at the same time, and this solution helps a lot.
 
-The "bot" is a script and companion library that connects Trello and JIRA. It is intended to have it's own individual account in both systems (we call ours "jirabot"). This user is assigned to Trello cards and mentioned in comments. The script will scan Trello, and look for commands to track or import JIRA tickets. Tracked JIRA tickets are then polled for changes, and the Trello card is updated whenever a comment, attachment or resolution happens.
+This "bot" is a script with some glue code that gives Trello the ability to track JIRA tickets. The bot is intended to have it's own individual account in both systems (we call ours "jirabot"), assigned to Trello cards and mentioned in comments. 
 
-It's a great way to create cards in Trello based on JIRA tickets, or to track multiple dependent JIRA tickets in a Trello card. From experience, I have learned it is very hard to track issues in both systems at the same time, and this helps a lot.
+The script is run periodically, and checks Trello tickets it is assigned to for tracking commands and status. Changes to tracked JIRA tickets (new comments, attachments or ticket resolutions) are posted to the Trello cards as comments.
+
+There is also an import command which provides an easy way to quickly create cards in Trello based on JIRA tickets. 
 
 ## Features ##
 
