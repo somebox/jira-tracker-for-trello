@@ -12,6 +12,7 @@ gem "awesome_print"
 gem "rest-client"
 gem "json"
 gem "rspec"
+gem "rake"
 
 group :development do
   gem 'wirble'

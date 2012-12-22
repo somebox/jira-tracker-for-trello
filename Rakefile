@@ -12,4 +12,6 @@ require 'rake/clean'
 # load 'tasks/*.rake'
 Dir.glob('tasks/**/*.rake').each { |r| Rake.application.add_import r }
 
+RSpec::Core::RakeTask.new(:spec)
 
+task :default => :spec
