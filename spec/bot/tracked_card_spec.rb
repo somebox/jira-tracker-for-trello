@@ -17,37 +17,6 @@ describe Bot::TrackedCard do
     @tracked_card.trello_card.should == @trello_card
   end
 
-  context "comments" do
-    before do
-      @user_comment_1 = Factory.build(:command_comment_track) 
-      @bot_comment    = Factory.build(:bot_comment) 
-      @user_comment_2 = Factory.build(:user_comment)
-      @user_comment_3 = Factory.build(:command_comment_close)
-      comments = [@user_comment_1, @bot_comment, @user_comment_2, @user_comment_3]
-      @tracked_card.should_receive(:comments).at_least(:once).and_return(comments)
-    end
-
-    it "should find bot comments" do
-      @tracked_card.bot_comments.should == [@bot_comment]
-    end
-
-    it "should find user comments" do
-      @tracked_card.user_comments.should == [@user_comment_1, @user_comment_2, @user_comment_3]
-    end
-
-    it "should find last bot comment" do
-      @tracked_card.last_bot_comment.should == @bot_comment
-    end
-
-    it "should find command comments" do
-      @tracked_card.command_comments.should == [@user_comment_1, @user_comment_3]
-    end
-
-    it "should find new command comments" do
-      @tracked_card.new_command_comments.should == [@user_comment_3]
-    end
-  end
-
   context "ticket tracking status" do
     it "should add to tracked cards" do
       @tracked_card.track_jira('WS-1234')
@@ -73,6 +42,16 @@ describe Bot::TrackedCard do
       @tracked_card.track_jira('WS-9999')
 
       @tracked_card.jira_tickets.should == ['WS-9999']
+    end
+
+    it "updates tracking status" do
+      commands = [
+        Bot::Command.new('track','WS-1234'),
+        Bot::Command.new('import', 'WS-4444')
+      ]
+      @tracked_card.should_receive(:commands).and_return(commands)
+      @tracked_card.update_tracking_status
+      @tracked_card.jira_tickets.should == ['WS-1234','WS-4444']
     end
   end
 

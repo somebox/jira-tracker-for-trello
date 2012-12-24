@@ -34,7 +34,7 @@ Factory.define :command_comment_track, :class => 'OpenStruct' do |f|
   f.data({'text' => '@bot track WS-9999'})
 end
 
-Factory.define :command_comment_close, :class => 'OpenStruct' do |f|
+Factory.define :command_comment_untrack, :class => 'OpenStruct' do |f|
   f.member_creator_id 'abcde'
   f.date DateTime.parse('2012-10-14')
   f.data({'text' => "@bot untrack WS-9999\nThis problem is fixed."})

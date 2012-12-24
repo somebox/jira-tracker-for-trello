@@ -9,6 +9,7 @@ require 'active_model'
 # require 'active_record'
 
 require 'bot/command'
+require 'bot/comment_scanner'
 require 'bot/tracked_card'
 require 'bot/trello'
 require 'jira/attachment'
