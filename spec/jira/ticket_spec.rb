@@ -24,6 +24,11 @@ describe Jira::Ticket do
     @ticket.title.should == 'wrong slots after calculating a route'
   end
 
+  it 'should check if a ticket exists' do
+    Jira::Client.should_receive(:get).and_raise(RestClient::ResourceNotFound)
+    Jira::Ticket.exists?('ws-404').should == false
+  end
+
   it 'should parse comments' do
     @ticket.comments.size.should == 1
     @ticket.comments.first.body.should =~ /duplicate of/

@@ -40,6 +40,14 @@ module Jira
       self.new(json)
     end
 
+    def self.exists?(ticket_id)
+      begin
+        Jira::Client.get(ticket_id) && true
+      rescue RestClient::ResourceNotFound
+        warn("Jira ticket #{ticket_id} not found")
+        false
+      end
+    end
 
     def web_link
       "#{Jira::Client.config.site}/browse/#{self.ticket_id}"

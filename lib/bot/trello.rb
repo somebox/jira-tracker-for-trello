@@ -14,7 +14,9 @@ module Bot
 
     def initialize
       self.member = ::Trello::Member.find(self.config.username)
-      self.cards  = self.member.cards.map{|card| Bot::TrackedCard.new(card, self)}
+      self.cards  = self.member.cards.map{|card| 
+        Bot::TrackedCard.new(card, self)
+      }
     end
 
     def username

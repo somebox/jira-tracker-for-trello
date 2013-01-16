@@ -108,8 +108,10 @@ module Bot
     end
 
     def track_jira(ticket_id)
-      self.jira_tickets.push(ticket_id)
-      self.jira_tickets.uniq!
+      if Jira::Ticket.exists?(ticket_id)
+        self.jira_tickets.push(ticket_id)
+        self.jira_tickets.uniq!
+      end
     end
 
     def untrack_jira(ticket_id)
