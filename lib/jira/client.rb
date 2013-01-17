@@ -1,8 +1,11 @@
 module Jira
-
   class Client
     include ActiveSupport::Configurable
     config_accessor :site, :user, :password
+
+    class << self
+      attr_accessor :cache
+    end
 
     def self.client
       @client ||= RestClient::Resource.new("#{self.config.site}/rest/api/latest/issue/", 

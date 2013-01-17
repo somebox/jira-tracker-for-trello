@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/rest-client/rest-client.git
+  revision: 3a5e64eb7c78e21e2ef3e44beeb7a6c8550e1556
+  specs:
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+      netrc (~> 0.7.7)
+
+GIT
   remote: git@github.com:somebox/ruby-trello.git
   revision: a0231a09b4c0321e3caf37acb556f2c4e105d73b
   specs:
@@ -43,15 +51,20 @@ GEM
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.4.0)
+    netrc (0.7.7)
     oauth (0.4.7)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.3.1)
+    rack (1.4.4)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rake (10.0.2)
     rb-fsevent (0.9.2)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
+    rest-client-components (1.2.0)
+      rack (>= 1.0.1)
+      rest-client (>= 1.6.0, < 1.7.0)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -76,9 +89,11 @@ DEPENDENCIES
   guard-bundler
   guard-rspec
   json
+  rack-cache
   rake
   rb-fsevent (~> 0.9.1)
-  rest-client
+  rest-client!
+  rest-client-components
   rspec
   ruby-trello!
   wirble

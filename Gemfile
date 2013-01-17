@@ -9,10 +9,12 @@ gem "activemodel"
 
 gem "ruby-trello", :git => 'git@github.com:somebox/ruby-trello.git'
 gem "awesome_print"
-gem "rest-client"
+gem "rest-client", :git => 'git://github.com/rest-client/rest-client.git'
+gem "rest-client-components"
 gem "json"
 gem "rspec"
 gem "rake"
+gem "rack-cache"
 
 group :development do
   gem 'wirble'

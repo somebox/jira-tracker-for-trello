@@ -5,8 +5,14 @@ $LOAD_PATH.unshift 'lib'
 require 'bundler'
 Bundler.setup
 
-require 'trello_jira_bridge'
 require 'optparse'
+require 'trello_jira_bridge'
+
+require 'rest_client'
+require 'restclient/components'
+require 'rack/cache'
+
+
 
 options = {
   config: 'config/config.yml'

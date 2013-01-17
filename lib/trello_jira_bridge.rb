@@ -4,6 +4,9 @@ require 'time'
 require 'yaml'
 require 'optparse'
 require 'rest_client'
+#require 'restclient/components'
+require 'rack/cache'
+
 require 'active_support'
 require 'active_model'
 # require 'active_record'
@@ -18,8 +21,12 @@ require 'jira/comment'
 require 'jira/ticket'
 
 
+
 module TrelloJiraBridge
   def self.load_config(config_file='config/config.yml')
+    #RestClient.enable Rack::CommonLogger, STDOUT
+
+
     @config = YAML.load_file(config_file)
 
     Jira::Client.config.site      = @config['jira']['site']
