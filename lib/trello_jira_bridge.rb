@@ -22,6 +22,7 @@ require 'jira/ticket'
 
 APICache.store = Moneta.new(:File, :dir=>'./tmp/cache/moneta')
 APICache.logger = Logger.new('./log/apicache.log')
+LOG = Logger.new('./log/bot.log')
 
 module TrelloJiraBridge
   def self.load_config(config_file='config/config.yml')
@@ -45,6 +46,6 @@ module TrelloJiraBridge
 #    ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
 #    ActiveRecord::Base.establish_connection('development')
 
-    puts 'Configuration loaded.'
+    LOG.debug 'Configuration loaded.'
   end
 end

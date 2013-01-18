@@ -25,6 +25,6 @@ optparse.parse!
 
 TrelloJiraBridge.load_config(options[:config])
 
-puts "Scanning Trello cards as @#{Bot::Trello.config.username}"
+LOG.info "Scanning Trello cards as @#{Bot::Trello.config.username}"
 Bot::Trello.new.update
 
