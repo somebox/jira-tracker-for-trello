@@ -8,12 +8,6 @@ Bundler.setup
 require 'optparse'
 require 'trello_jira_bridge'
 
-require 'rest_client'
-require 'restclient/components'
-require 'rack/cache'
-
-
-
 options = {
   config: 'config/config.yml'
 }

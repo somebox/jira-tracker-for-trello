@@ -3,6 +3,11 @@ module Jira
     include ActiveSupport::Configurable
     config_accessor :site, :user, :password
 
+    CACHE_OPTIONS = {
+      :cache => 60, 
+      :valid => 600
+    }
+
     class << self
       attr_accessor :cache
     end
@@ -16,8 +21,14 @@ module Jira
     end
 
     def self.get(ticket_id)
-      response = self.client[ticket_id].get
-      JSON.parse(response.body)
+      begin
+        APICache.get("jira_ticket_#{ticket_id}", CACHE_OPTIONS) do
+          response = self.client[ticket_id].get
+          JSON.parse(response.body)
+        end
+      rescue APICache::CannotFetch
+        raise RestClient::ResourceNotFound
+      end
     end
 
     # Downloads a file. Returns a Tempfile 

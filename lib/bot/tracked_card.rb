@@ -13,6 +13,11 @@ module Bot
     attr_accessor :jira_tickets, :last_bot_update
     attr_accessor 
 
+    CACHE_OPTIONS = {
+      :cache => 60, 
+      :valid => 600
+    }
+
     def initialize(trello_card, trello_bot)
       self.trello_card = trello_card
       self.trello_bot = trello_bot
@@ -91,7 +96,9 @@ module Bot
     #    @jirabot untrack WS-1234    
     #
     def comment_scanner
-      comments = self.trello_card.actions(:filter=>'commentCard')
+      comments = APICache.get("trello_card_#{self.short_id}", CACHE_OPTIONS) do
+        self.trello_card.actions(:filter=>'commentCard')
+      end
       Bot::CommentScanner.new(comments, self.trello_bot.user_id)
     end
 

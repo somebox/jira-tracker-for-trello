@@ -4,8 +4,8 @@ require 'time'
 require 'yaml'
 require 'optparse'
 require 'rest_client'
-#require 'restclient/components'
-require 'rack/cache'
+require 'moneta'
+require 'api_cache'
 
 require 'active_support'
 require 'active_model'
@@ -20,7 +20,8 @@ require 'jira/client'
 require 'jira/comment'
 require 'jira/ticket'
 
-
+APICache.store = Moneta.new(:File, :dir=>'./tmp/cache/moneta')
+APICache.logger = Logger.new('./log/apicache.log')
 
 module TrelloJiraBridge
   def self.load_config(config_file='config/config.yml')

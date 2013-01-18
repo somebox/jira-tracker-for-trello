@@ -1,6 +1,6 @@
-log/*
 .rvmrc
 db/structure.sql
 config/settings.yml
 db/data*
 tmp/*
+log/*.log

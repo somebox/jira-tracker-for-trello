@@ -7,14 +7,15 @@ gem "activemodel"
 # gem "standalone_migrations"
 # gem "sqlite3"
 
+gem "rspec"
+gem "rake"
+
 gem "ruby-trello", :git => 'git@github.com:somebox/ruby-trello.git'
 gem "awesome_print"
 gem "rest-client", :git => 'git://github.com/rest-client/rest-client.git'
-gem "rest-client-components"
+gem "moneta"
+gem "api_cache"
 gem "json"
-gem "rspec"
-gem "rake"
-gem "rack-cache"
 
 group :development do
   gem 'wirble'
