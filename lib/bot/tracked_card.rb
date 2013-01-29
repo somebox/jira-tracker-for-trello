@@ -15,7 +15,8 @@ module Bot
 
     CACHE_OPTIONS = {
       :cache => 60, 
-      :valid => 600
+      :valid => 600,
+      :fail  => 'error'
     }
 
     def initialize(trello_card, trello_bot)
