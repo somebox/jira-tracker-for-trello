@@ -6,6 +6,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'rspec'
+require 'active_support'
 require 'factory_girl'
 
 require File.expand_path("../../lib/trello_jira_bridge", __FILE__)
