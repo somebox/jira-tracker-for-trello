@@ -71,8 +71,14 @@ ActiveSupport is used to handle configuration, and gain access to things like `.
 
 There is no data or state infomation persisted locally. Sync status is determined by looking at event timestamps, and comparing them to when the bot last posted a comment.
 
+The [moneta](https://github.com/minad/moneta) gem is used for caching. It only stores JIRA/Trello responses for a short time to help reduce repeat calls to cards/tickets we have recently fetched in a single update cycle.
+
+
+
 ## TODO
 
+* update documentation to be more generic for other configurations
+* add some protection so that only authorized Trello organizations can be accessed. Trello has *very* open permissions: anyone can add any use to any board, which could be a security risk otherwise... :/
 * open source this puppy. nearly ready.
 
 Add more commands:
