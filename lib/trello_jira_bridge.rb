@@ -12,7 +12,6 @@ require 'api_cache'
 
 require 'active_support'
 require 'active_model'
-# require 'active_record'
 
 require 'bot/command'
 require 'bot/comment_scanner'
@@ -29,9 +28,6 @@ LOG = Logger.new('./log/bot.log')
 
 module TrelloJiraBridge
   def self.load_config(config_file='config/config.yml')
-    #RestClient.enable Rack::CommonLogger, STDOUT
-
-
     @config = YAML.load_file(config_file)
 
     Jira::Client.config.site      = @config['jira']['site']
@@ -44,10 +40,6 @@ module TrelloJiraBridge
     Bot::Trello.config.public_key = @config['trello']['public_key']
 
     Bot::Trello.setup_oauth!
-
-#    ActiveRecord::Base.logger = Logger.new('log/debug.log')
-#    ActiveRecord::Base.configurations = YAML::load(IO.read('db/config.yml'))
-#    ActiveRecord::Base.establish_connection('development')
 
     LOG.debug 'Configuration loaded.'
   end
