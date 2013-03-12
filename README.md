@@ -73,8 +73,7 @@ There is no data or state infomation persisted locally. Sync status is determine
 
 ## TODO
 
-* Better error handling. Invalid ticket references cause the script to break.
-* More efficient networking. Jira tickets could be cached or retained. Timeouts are not handled.
+* open source this puppy. nearly ready.
 
 Add more commands:
 
