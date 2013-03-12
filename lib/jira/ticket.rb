@@ -16,7 +16,7 @@ module Jira
       self.title            = fields["summary"]["value"]
       self.issue_type       = fields["issuetype"]["value"]["name"]
       self.fix_versions     = fields["fixVersions"].try(:[], "value").to_a.map{|v| v["name"]}
-      self.priority         = fields["priority"] ? fields["priority"]["value"]["name"] : ''
+      self.priority         = fields.fetch("priority",{}).fetch("value",{}).fetch("name",{})
       self.description      = fields["description"]["value"]
       self.status           = fields["status"]["value"]["name"]
       self.project          = fields["project"]["value"]["name"]
