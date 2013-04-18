@@ -16,7 +16,7 @@ module Bot
     def self.command_regex
       bot_username        = Bot::Trello.config.username
       command_matcher     = SUPPORTED_COMMANDS.join('|')
-      jira_matcher        = '[\d\w-]+'
+      jira_matcher        = '\S+'
       %r{\@#{bot_username}\s+(#{command_matcher})\s+(#{jira_matcher})}i
     end
 
@@ -25,6 +25,7 @@ module Bot
       if matches
         name = matches[1].downcase
         ticket_id = matches[2].upcase
+        ticket_id = ticket_id.scan(/[\w\d-]+$/).to_a.first
         return Bot::Command.new(name, ticket_id)
       else
         return nil
