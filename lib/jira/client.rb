@@ -4,8 +4,8 @@ module Jira
     config_accessor :site, :user, :password
 
     CACHE_OPTIONS = {
-      :cache => 60, 
-      :valid => 600
+      :cache => self.config.cache_time, 
+      :valid => self.config.cache_valid
     }
 
     class << self

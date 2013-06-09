@@ -16,8 +16,8 @@ module Bot
     attr_accessor :jira_tickets, :last_bot_update
 
     CACHE_OPTIONS = {
-      :cache => 60, 
-      :valid => 600,
+      :cache => self.config.cache_time, 
+      :valid => self.config.cache_valid,
       :fail  => 'error'
     }
 

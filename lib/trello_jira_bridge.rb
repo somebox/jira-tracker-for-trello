@@ -33,12 +33,16 @@ module TrelloJiraBridge
     Jira::Client.config.site      = @config['jira']['site']
     Jira::Client.config.user      = @config['jira']['user']
     Jira::Client.config.password  = @config['jira']['password']
+    Jira::Client.config.cache_time = @config['cache']['time']
+    Jira::Client.config.cache_valid = @config['cache']['valid']
     Jira::Ticket.config.jira_version = @config['jira']['version'].to_i
 
     Bot::Trello.config.username   = @config['trello']['user']
     Bot::Trello.config.secret     = @config['trello']['secret']
     Bot::Trello.config.app_key    = @config['trello']['app_key']
     Bot::Trello.config.public_key = @config['trello']['public_key']
+    Bot::Trello.config.cache_time = @config['cache']['time']
+    Bot::Trello.config.cache_valid = @config['cache']['valid']
 
     Bot::Trello.setup_oauth!
 
