@@ -5,5 +5,5 @@ end
 
 def stub_jira_ticket_request(ticket_id)
   fixture = load_fixture("jira/#{ticket_id}.json")
-  Jira::Client.should_receive(:get).with(ticket_id).at_least(:once).and_return(fixture)
+  Jira4::Client.should_receive(:get).with(ticket_id).at_least(:once).and_return(fixture)
 end

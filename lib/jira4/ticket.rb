@@ -1,4 +1,4 @@
-module Jira
+module Jira4
   class Ticket
     attr_accessor :ticket_id, :api_link, :title, :description
     attr_accessor :issue_type, :fix_versions, :priority, :status, :project
@@ -13,6 +13,7 @@ module Jira
       self.ticket_id        = json["key"]
       self.api_link         = json["self"]
 
+      ap json
       self.title            = fields["summary"]["value"]
       self.issue_type       = fields["issuetype"]["value"]["name"]
       self.fix_versions     = fields["fixVersions"].fetch("value",[]).map{|v| v["name"]}
@@ -25,24 +26,24 @@ module Jira
       self.resolution_date  = fields["resolutiondate"] ? DateTime.parse(fields["resolutiondate"]["value"]) : nil
 
       self.attachments      = fields["attachment"]["value"].map do |attachment_json| 
-        Jira::Attachment.new(attachment_json)
+        Jira4::Attachment.new(attachment_json)
       end
 
       self.comments = fields["comment"]["value"].map do |comment_json|
-        Jira::Comment.new(comment_json)
+        Jira4::Comment.new(comment_json)
       end
 
       self
     end
 
     def self.get(ticket_id)
-      json = Jira::Client.get(ticket_id)
+      json = Jira4::Client.get(ticket_id)
       self.new(json)
     end
 
     def self.exists?(ticket_id)
       begin
-        Jira::Client.get(ticket_id) && true
+        Jira4::Client.get(ticket_id) && true
       rescue RestClient::ResourceNotFound
         warn("Jira ticket #{ticket_id} not found")
         false
@@ -50,7 +51,7 @@ module Jira
     end
 
     def web_link
-      "#{Jira::Client.config.site}/browse/#{self.ticket_id}"
+      "#{Jira4::Client.config.site}/browse/#{self.ticket_id}"
     end
 
     def comment_web_link(comment)

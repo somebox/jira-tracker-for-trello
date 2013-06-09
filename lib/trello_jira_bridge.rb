@@ -17,10 +17,10 @@ require 'bot/command'
 require 'bot/comment_scanner'
 require 'bot/tracked_card'
 require 'bot/trello'
-require 'jira/attachment'
-require 'jira/client'
-require 'jira/comment'
-require 'jira/ticket'
+require 'jira4/attachment'
+require 'jira4/client'
+require 'jira4/comment'
+require 'jira4/ticket'
 
 APICache.store = Moneta.new(:File, :dir=>'./tmp/cache/moneta')
 APICache.logger = Logger.new('./log/apicache.log')
@@ -30,9 +30,9 @@ module TrelloJiraBridge
   def self.load_config(config_file='config/config.yml')
     @config = YAML.load_file(config_file)
 
-    Jira::Client.config.site      = @config['jira']['site']
-    Jira::Client.config.user      = @config['jira']['user']
-    Jira::Client.config.password  = @config['jira']['password']
+    Jira4::Client.config.site      = @config['jira']['site']
+    Jira4::Client.config.user      = @config['jira']['user']
+    Jira4::Client.config.password  = @config['jira']['password']
 
     Bot::Trello.config.username   = @config['trello']['user']
     Bot::Trello.config.secret     = @config['trello']['secret']

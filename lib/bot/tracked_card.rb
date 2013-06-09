@@ -3,7 +3,7 @@
 Usage:
 
     card = Bot::TrackedCard.new(trello_card, trello_bot)
-    card.tracked_jira_tickets     # => [<Jira::Ticket ...>, ]
+    card.tracked_jira_tickets     # => [<Jira4::Ticket ...>, ]
     card.process_new_commands!
 
 =end
@@ -41,7 +41,7 @@ module Bot
     # If the ticket in JIRA has been marked as "resolved" since our last posting,
     # comment on the Trello ticket with the date.
     def update_resolution_status(ticket_id)
-      jira_ticket = Jira::Ticket.get(ticket_id)
+      jira_ticket = Jira4::Ticket.get(ticket_id)
       if jira_ticket.resolution_date 
         if jira_ticket.resolution_date > self.last_posting_date
           timestamp = jira_ticket.resolution_date.strftime('%v %R')
@@ -54,7 +54,7 @@ module Bot
 
     def update_comments_from_jira(ticket_id)
       is_updated = false
-      jira_ticket = Jira::Ticket.get(ticket_id)
+      jira_ticket = Jira4::Ticket.get(ticket_id)
       jira_ticket.comments_since(self.last_posting_date).each do |comment|
         link = jira_ticket.comment_web_link(comment)
         text = [comment.header, comment.body, link].join("\n")
@@ -66,9 +66,9 @@ module Bot
 
     def update_attachments_from_jira(ticket_id)
       is_updated = false
-      jira_ticket = Jira::Ticket.get(ticket_id)
+      jira_ticket = Jira4::Ticket.get(ticket_id)
       jira_ticket.attachments_since(self.last_posting_date).each do |attachment|
-        file = Jira::Client.download(attachment.content)
+        file = Jira4::Client.download(attachment.content)
         self.trello_card.add_attachment(file, attachment.filename)
         is_updated = true
       end
@@ -76,7 +76,7 @@ module Bot
     end
 
     def import_content_from_jira(ticket_id)
-      jira_ticket = Jira::Ticket.get(ticket_id)
+      jira_ticket = Jira4::Ticket.get(ticket_id)
       
       # update card name and description
       description = jira_ticket.description.gsub('{code}','')
@@ -116,7 +116,7 @@ module Bot
     end
 
     def track_jira(ticket_id)
-      if Jira::Ticket.exists?(ticket_id)
+      if Jira4::Ticket.exists?(ticket_id)
         self.jira_tickets.push(ticket_id)
         self.jira_tickets.uniq!
       end

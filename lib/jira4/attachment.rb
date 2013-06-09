@@ -1,4 +1,4 @@
-module Jira
+module Jira4
   class Attachment
     attr_accessor :filename, :author, :content, :thumbnail, :mime_type, :created, :size
 
@@ -13,7 +13,7 @@ module Jira
     end
 
     def download
-      Jira::Client.download(self.content)
+      Jira4::Client.download(self.content)
     end
   end
 end

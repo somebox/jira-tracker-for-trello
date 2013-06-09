@@ -43,9 +43,9 @@ RSpec.configure do |config|
   config.before(:suite) do
     Bot::Trello.config.username = 'bot'
 
-    Jira::Client.config.site      = 'https://jira.example.com'
-    Jira::Client.config.user      = 'bot'
-    Jira::Client.config.password  = 'secret'
+    Jira4::Client.config.site      = 'https://jira.example.com'
+    Jira4::Client.config.user      = 'bot'
+    Jira4::Client.config.password  = 'secret'
   end
 
 end

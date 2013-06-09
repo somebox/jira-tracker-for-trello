@@ -1,15 +1,15 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe Jira::Ticket do
+describe Jira4::Ticket do
   before do
     stub_jira_ticket_request('WS-1299')
     stub_jira_ticket_request('WS-1230')
     stub_jira_ticket_request('WS-1080')
 
-    @ticket = Jira::Ticket.get('WS-1299')
-    @ticket_with_many_comments = Jira::Ticket.get('WS-1230')
-    @ticket_with_attachments = Jira::Ticket.get('WS-1080')
+    @ticket = Jira4::Ticket.get('WS-1299')
+    @ticket_with_many_comments = Jira4::Ticket.get('WS-1230')
+    @ticket_with_attachments = Jira4::Ticket.get('WS-1080')
   end
 
   it 'should parse the ticket id' do
@@ -25,8 +25,8 @@ describe Jira::Ticket do
   end
 
   it 'should check if a ticket exists' do
-    Jira::Client.should_receive(:get).and_raise(RestClient::ResourceNotFound)
-    Jira::Ticket.exists?('ws-404').should == false
+    Jira4::Client.should_receive(:get).and_raise(RestClient::ResourceNotFound)
+    Jira4::Ticket.exists?('ws-404').should == false
   end
 
   it 'should parse comments' do

@@ -1,4 +1,4 @@
-module Jira
+module Jira4
   class Client
     include ActiveSupport::Configurable
     config_accessor :site, :user, :password
@@ -39,8 +39,8 @@ module Jira
       file.write RestClient::Request.execute(
         :method   => :get, 
         :url      => url, 
-        :user     => Jira::Client.config.user, 
-        :password => Jira::Client.config.password
+        :user     => Jira4::Client.config.user, 
+        :password => Jira4::Client.config.password
       )
       file.close
       File.open(file.path)

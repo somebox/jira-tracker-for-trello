@@ -10,7 +10,7 @@ describe Bot::TrackedCard do
     @bot = Bot::Trello.new
     @trello_card = Factory.build(:trello_card)
     @tracked_card = Bot::TrackedCard.new(@trello_card, @bot)
-    Jira::Ticket.stub(:exists?).and_return(true)
+    Jira4::Ticket.stub(:exists?).and_return(true)
   end
 
   it "should initialize" do

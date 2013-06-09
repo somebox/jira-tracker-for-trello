@@ -1,4 +1,4 @@
-module Jira
+module Jira4
   class Comment
     attr_accessor :api_link, :author, :body, :created, :updated
     attr_accessor :comment_id, :web_link
