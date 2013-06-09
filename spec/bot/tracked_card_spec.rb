@@ -10,7 +10,8 @@ describe Bot::TrackedCard do
     @bot = Bot::Trello.new
     @trello_card = Factory.build(:trello_card)
     @tracked_card = Bot::TrackedCard.new(@trello_card, @bot)
-    Jira4::Ticket.stub(:exists?).and_return(true)
+    Jira::Ticket.config.jira_version = 4
+    Jira::Ticket.stub(:exists?).and_return(true)
   end
 
   it "should initialize" do
@@ -88,6 +89,7 @@ describe Bot::TrackedCard do
   context "import card from jira" do
     before do
       stub_jira_ticket_request('WS-1230')
+      Jira::Ticket.config.jira_version = 4
       @tracked_card.trello_card.should_receive(:save).and_return(true)
     end
 
