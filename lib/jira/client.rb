@@ -2,10 +2,12 @@ module Jira
   class Client
     include ActiveSupport::Configurable
     config_accessor :site, :user, :password
+    config_accessor :cache_time, :cache_valid, :cache_timeout
 
     CACHE_OPTIONS = {
       :cache => self.config.cache_time, 
-      :valid => self.config.cache_valid
+      :valid => self.config.cache_valid,
+      :timeout => self.config.cache_timeout
     }
 
     class << self
@@ -22,10 +24,10 @@ module Jira
 
     def self.get(ticket_id)
       begin
-        APICache.get("jira_ticket_#{ticket_id}", CACHE_OPTIONS) do
+        #APICache.get("jira_ticket_#{ticket_id}", CACHE_OPTIONS) do
           response = self.client[ticket_id].get
           JSON.parse(response.body)
-        end
+        #end
       rescue APICache::CannotFetch
         raise RestClient::ResourceNotFound
       end
