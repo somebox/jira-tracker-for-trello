@@ -12,7 +12,8 @@ gem "rake"
 
 gem "ruby-trello", :git => 'git@github.com:somebox/ruby-trello.git'
 gem "awesome_print"
-gem "rest-client", :git => 'git://github.com/rest-client/rest-client.git'
+#gem "rest-client", :git => 'git://github.com/rest-client/rest-client.git'
+gem "rest-client"
 gem "moneta"
 gem "api_cache"
 gem "json"
