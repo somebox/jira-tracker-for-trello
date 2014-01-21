@@ -18,7 +18,7 @@ module Jira
       self.ticket_id        = json["key"]
       self.api_link         = json["self"]
 
-      self.title            = fields["summary"]["value"]
+      self.title            = fields["summary"]
       if @jira_version == 4
         # JIRA V4
         self.issue_type     = fields["issuetype"]["value"]["name"]
@@ -77,7 +77,7 @@ module Jira
     end
 
     def web_link
-      "#{self.class.config.site}/browse/#{self.ticket_id}"
+      "#{Jira::Client.config.site}/browse/#{self.ticket_id}"
     end
 
     def comment_web_link(comment)

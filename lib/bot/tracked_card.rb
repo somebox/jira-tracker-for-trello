@@ -56,12 +56,16 @@ module Bot
       false
     end
 
+    def converted_markup(string)
+      string.gsub('{code}','```')
+    end
+
     def update_comments_from_jira(ticket_id)
       is_updated = false
       jira_ticket = self.get_jira_ticket(ticket_id)
       jira_ticket.comments_since(self.last_posting_date).each do |comment|
         link = jira_ticket.comment_web_link(comment)
-        text = [comment.header, comment.body, link].join("\n")
+        text = [comment.header, converted_markup(comment.body), '---', link].join("\n")
         self.add_comment("#{jira_ticket.ticket_id}: #{text}")
         is_updated = true
       end
@@ -83,7 +87,7 @@ module Bot
       jira_ticket = self.get_jira_ticket(ticket_id)
       
       # update card name and description
-      description = jira_ticket.description.gsub('{code}','')
+      description = converted_markup(jira_ticket.description)
       description = "** Imported from #{jira_ticket.web_link} **\n\n----\n\n#{description}"
       self.trello_card.description = description
       self.trello_card.name = jira_ticket.summary
@@ -159,6 +163,8 @@ module Bot
         self.trello_card.add_comment("JIRA ticket #{command.ticket_id} is no longer being tracked.")
       when 'import'
         self.import_content_from_jira(command.ticket_id)
+        self.update_attachments_from_jira(command.ticket_id) 
+        self.update_comments_from_jira(command.ticket_id)
         self.trello_card.add_comment("JIRA ticket #{command.ticket_id} was imported and is being tracked.")
       when 'comment'
       when 'close'
