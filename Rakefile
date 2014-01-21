@@ -1,10 +1,14 @@
+$LOAD_PATH.unshift 'lib'
+
 require 'rubygems'
 require 'bundler'
 require "bundler/gem_tasks"
 
 require 'rspec/core/rake_task'
 require 'rake/clean'
-#require 'standalone_migrations'
+require 'trello_jira_bridge'
+
+TrelloJiraBridge.load_config
 
 #StandaloneMigrations::Tasks.load_tasks
 

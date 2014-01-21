@@ -9,12 +9,15 @@ module Jira
       self.body     = json["body"]
       self.created  = DateTime.parse(json["created"])
       self.updated  = DateTime.parse(json["updated"])
-      self.web_link   = web_link
       self.comment_id = self.api_link.split('/').last  # last part of api link contains the comment id
     end
 
     def header
-      "*Comment by* #{self.author}, **#{self.created.strftime('%v %R')}**:"
+      "Comment by #{self.author}, #{self.date}"
+    end
+
+    def date
+      self.created.strftime('%v %R')
     end
   end
 end  

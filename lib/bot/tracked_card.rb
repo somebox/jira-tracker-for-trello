@@ -31,7 +31,7 @@ module Bot
 
     def summary
       title = self.trello_card.name
-      "##{self.short_id}: #{title}"
+      "##{self.short_id} (#{self.trello_card.board.name})"
     end
 
     def short_id
@@ -57,25 +57,28 @@ module Bot
     end
 
     def converted_markup(string)
-      string.gsub('{code}','```')
+      string.gsub('{code}',"\n```")
     end
 
-    def update_comments_from_jira(ticket_id)
+    def update_comments_from_jira(ticket_id, force=false)
       is_updated = false
       jira_ticket = self.get_jira_ticket(ticket_id)
-      jira_ticket.comments_since(self.last_posting_date).each do |comment|
+      comments = force ? jira_ticket.comments : jira_ticket.comments_since(self.last_posting_date)
+      comments.each do |comment|
         link = jira_ticket.comment_web_link(comment)
-        text = [comment.header, converted_markup(comment.body), '---', link].join("\n")
-        self.add_comment("#{jira_ticket.ticket_id}: #{text}")
+        header = "[Comment by #{comment.author}](#{link}), #{comment.date}"
+        text = [header, '---', converted_markup(comment.body)].join("\n")
+        self.add_comment("**#{jira_ticket.ticket_id}**: #{text}")
         is_updated = true
       end
       is_updated
     end
 
-    def update_attachments_from_jira(ticket_id)
+    def update_attachments_from_jira(ticket_id, force=false)
       is_updated = false
       jira_ticket = self.get_jira_ticket(ticket_id)
-      jira_ticket.attachments_since(self.last_posting_date).each do |attachment|
+      attachments = force ? jira_ticket.attachments : jira_ticket.attachments_since(self.last_posting_date)
+      attachments.each do |attachment|
         file = Jira::Client.download(attachment.content)
         self.trello_card.add_attachment(file, attachment.filename)
         is_updated = true
@@ -163,8 +166,8 @@ module Bot
         self.trello_card.add_comment("JIRA ticket #{command.ticket_id} is no longer being tracked.")
       when 'import'
         self.import_content_from_jira(command.ticket_id)
-        self.update_attachments_from_jira(command.ticket_id) 
-        self.update_comments_from_jira(command.ticket_id)
+        self.update_attachments_from_jira(command.ticket_id,true) 
+        self.update_comments_from_jira(command.ticket_id,true)
         self.trello_card.add_comment("JIRA ticket #{command.ticket_id} was imported and is being tracked.")
       when 'comment'
       when 'close'

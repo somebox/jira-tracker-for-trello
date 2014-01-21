@@ -88,12 +88,14 @@ describe Bot::TrackedCard do
 
   context "import card from jira" do
     before do
+      pending "dropping jira 4 support"
       stub_jira_ticket_request('WS-1230')
       Jira::Ticket.config.jira_version = 4
       @tracked_card.trello_card.should_receive(:save).and_return(true)
     end
 
     it "should import details" do
+      pending "dropping jira 4 support"
       @tracked_card.import_content_from_jira('WS-1230')
       @tracked_card.trello_card.name.should =~ /WS-1230: Adress mismatch on map.local.ch/
     end

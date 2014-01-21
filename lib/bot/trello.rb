@@ -36,7 +36,7 @@ module Bot
     def update
       self.cards.each do |tracked_card|
         # update tracking status
-        LOG.info " * Scanning Trello #{tracked_card.short_id}"
+        LOG.info " * Scanning Trello #{tracked_card.summary}"
         tracked_card.update_tracking_status
         ticket_list = tracked_card.jira_tickets.join(', ')
         ticket_list = 'none' if ticket_list.blank?

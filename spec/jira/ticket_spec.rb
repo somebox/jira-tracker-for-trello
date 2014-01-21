@@ -26,6 +26,7 @@ describe 'jira 4' do
     end
 
     it 'should parse the title' do
+      pending "dropping jira 4 support"
       @ticket.title.should == 'wrong slots after calculating a route'
     end
 
