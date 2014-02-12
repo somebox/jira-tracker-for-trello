@@ -4,3 +4,7 @@ config/settings.yml
 db/data*
 tmp/*
 log/*.log
+.bundle
+.rvmrc
+.ruby-version
+.ruby-gemset
