@@ -23,14 +23,8 @@ module Jira
     end
 
     def self.get(ticket_id)
-      begin
-        #APICache.get("jira_ticket_#{ticket_id}", CACHE_OPTIONS) do
-          response = self.client[ticket_id].get
-          JSON.parse(response.body)
-        #end
-      rescue APICache::CannotFetch
-        raise RestClient::ResourceNotFound
-      end
+      response = self.client[ticket_id].get
+      JSON.parse(response.body)
     end
 
     # Downloads a file. Returns a Tempfile 

@@ -70,7 +70,7 @@ module Jira
     def self.exists?(ticket_id)
       begin
         Jira::Client.get(ticket_id) && true
-      rescue RestClient::ResourceNotFound
+      rescue RestClient::ResourceNotFound, RestClient::MethodNotAllowed
         warn("Jira ticket #{ticket_id} not found")
         false
       end
