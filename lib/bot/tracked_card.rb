@@ -11,17 +11,9 @@ module Bot
   class TrackedCard
     include ActiveSupport::Configurable
     config_accessor :site, :user, :password
-    config_accessor :cache_time, :cache_valid, :cache_timeout
     
     attr_accessor :trello_card, :trello_bot
     attr_accessor :jira_tickets, :last_bot_update
-
-    CACHE_OPTIONS = {
-      :cache => self.config.cache_time, 
-      :valid => self.config.cache_valid,
-      :timeout => self.config.cache_timeout,
-      :fail  => 'error'
-    }
 
     def initialize(trello_card, trello_bot)
       self.trello_card = trello_card
@@ -109,9 +101,7 @@ module Bot
     #
     def comment_scanner
       comments = 
-        # APICache.get("trello_card_#{self.short_id}", CACHE_OPTIONS) do
         self.trello_card.actions(:filter=>'commentCard')
-        # end
       Bot::CommentScanner.new(comments, self.trello_bot.user_id)
     end
 

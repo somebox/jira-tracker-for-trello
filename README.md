@@ -1,12 +1,9 @@
-# Trello/Jira Integration Bot #
+# Jira Tracker for Trello
+## Trello/Jira Integration
 
-This project exists to improve workflow between Trello and Jira. It is perfect for an agile team that uses Trello for daily development and sprint planning, but must interact with JIRA for external dependencies or bug reports. From experience, I have learned it is very hard to track issues in both systems at the same time, and this solution helps a lot.
+This project exists to improve workflow between Trello and Jira. It is perfect for an agile team that uses Trello for daily development and sprint planning, but must interact with JIRA for other teams or bug reports. From experience, I have learned it is very hard to track issues in both systems at the same time, and this solution helps.
 
-This "bot" is a script with some glue code that gives Trello the ability to track JIRA tickets. The bot is intended to have it's own individual account in both systems (we call ours "jirabot"), assigned to Trello cards and mentioned in comments. 
-
-The script is run periodically, and checks Trello tickets it is assigned to for tracking commands and status. Changes to tracked JIRA tickets (new comments, attachments or ticket resolutions) are posted to the Trello cards as comments.
-
-There is also an import command which provides an easy way to quickly create cards in Trello based on JIRA tickets. 
+A script is run periodically from cron. It interacts with JIRA and Trello using the web APIs. The "bot" is a Trello/Jira user that should have it's own individual account on both systems (we call ours "jirabot").
 
 ## Features ##
 
@@ -18,16 +15,22 @@ Keeps Trello cards up-to-date with referenced JIRA tickets:
 
 There is also an `import` command, handy for creating new Trello cards from JIRA tickets. 
 
+## How it works
+
+The intregration works by assigning the bot to Trello cards and mentioned it in comments. For instance, adding the comment `@jirabot track AX-123` to a Trello card will enable automatic updates from JIRA issue AX-123.
+
+A script runs periodically, and checks relevant Trello tickets for tracking commands and status. Changes to tracked JIRA tickets (new comments, attachments or ticket resolutions) are posted to the Trello cards as comments.
+
 ## Screenshot ##
 
 ![trello test board](http://dl.dropbox.com/u/385855/Screenshots/8pys.png)
 
 ## Installation ##
 
-* A user `JiraBot` is created in Trello and added to one or more boards, and configured for OAuth API access.
-* A JIRA user is created and added to one or more projects.
-* Create a configuration file `config/config.yml`. See `config/config-example.yml` for details. You will need authentication details to access to the APIs of both Trello and JIRA. 
-* set up a cron job to run the script `bin/trello_jira_bot` periodically (for example, every 15 minutes).
+* Create a Trello user and add it to one or more boards.
+* Create a JIRA user and give it access to one or more projects.
+* Create a configuration file `config/config.yml`. (See `config/config-example.yml` for details). You will need authentication details to access to the APIs of both Trello and JIRA. 
+* set up a cron job to run the script `bin/trello_jira_bot` periodically (for example, every 10 minutes).
 
 ### Authentication Config Notes ##
 
@@ -47,7 +50,7 @@ Create a 'bot' user on Trello, and add it to one or more boards. Trello requires
 
 ## Usage ##
 
-A Trello card can be set up to track a set of JIRA tickets. The bot should have access to the board, and be assigned to the ticket. Commands are issued by adding comments to a ticket and mentioning the bot:
+A Trello card can be set up to track a set of JIRA tickets. The bot should have access to the board, and be assigned to the ticket. Commands are issued by adding comments to a ticket and mentioning the bot by name:
 
     @jirabot track SYS-1234
 
@@ -71,15 +74,11 @@ ActiveSupport is used to handle configuration, and gain access to things like `.
 
 There is no data or state infomation persisted locally. Sync status is determined by looking at event timestamps, and comparing them to when the bot last posted a comment.
 
-The [moneta](https://github.com/minad/moneta) gem is used for caching. It only stores JIRA/Trello responses for a short time to help reduce repeat calls to cards/tickets we have recently fetched in a single update cycle.
-
-
 
 ## TODO
 
 * update documentation to be more generic for other configurations
 * add some protection so that only authorized Trello organizations can be accessed. Trello has *very* open permissions: anyone can add any use to any board, which could be a security risk otherwise... :/
-* open source this puppy. nearly ready.
 
 Add more commands:
 

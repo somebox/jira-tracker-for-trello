@@ -2,17 +2,6 @@ module Jira
   class Client
     include ActiveSupport::Configurable
     config_accessor :site, :user, :password
-    config_accessor :cache_time, :cache_valid, :cache_timeout
-
-    CACHE_OPTIONS = {
-      :cache => self.config.cache_time, 
-      :valid => self.config.cache_valid,
-      :timeout => self.config.cache_timeout
-    }
-
-    class << self
-      attr_accessor :cache
-    end
 
     def self.client
       @client ||= RestClient::Resource.new("#{self.config.site}/rest/api/latest/issue/", 

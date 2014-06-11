@@ -1,0 +1,319 @@
+{
+    "expand": "html",
+    "self": "https://jira.example.com/rest/api/latest/issue/WS-1230",
+    "key": "WS-1230",
+    "fields": {
+        "summary": {
+            "name": "summary",
+            "type": "java.lang.String",
+            "value": "Adress mismatch on map.company.com"
+        },
+        "timetracking": {
+            "name": "timetracking",
+            "type": "com.atlassian.jira.issue.fields.TimeTrackingSystemField"
+        },
+        "customfield_10081": {
+            "name": "Epic/Theme",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:labels"
+        },
+        "customfield_10082": {
+            "name": "Rank (Obsolete)",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        },
+        "issuetype": {
+            "name": "issuetype",
+            "type": "com.atlassian.jira.issue.issuetype.IssueType",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/issueType/1",
+                "name": "Bug",
+                "subtask": false
+            }
+        },
+        "customfield_10080": {
+            "name": "Flagged",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes"
+        },
+        "votes": {
+            "name": "votes",
+            "type": "com.atlassian.jira.issue.fields.VotesSystemField",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/issue/WS-1230/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        },
+        "fixVersions": {
+            "name": "fixVersions",
+            "type": "com.atlassian.jira.project.version.Version",
+            "value": [
+                {
+                    "self": "https://jira.example.com/rest/api/latest/version/11043",
+                    "id": 11043,
+                    "name": "Website",
+                    "archived": false,
+                    "released": false
+                }
+            ]
+        },
+        "security": {
+            "name": "security",
+            "type": "com.atlassian.jira.issue.security.IssueSecurityLevel"
+        },
+        "customfield_10140": {
+            "name": "ZendeskID",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:readonlyfield",
+            "value": "28420"
+        },
+        "reporter": {
+            "name": "reporter",
+            "type": "com.opensymphony.user.User",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/user?username=automator",
+                "name": "automator",
+                "displayName": "Otto Mätor",
+                "active": true
+            }
+        },
+        "customfield_10350": {
+            "name": "Global Rank",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 4407
+        },
+        "created": {
+            "name": "created",
+            "type": "java.util.Date",
+            "value": "2012-09-13T12:09:25.000+0200"
+        },
+        "updated": {
+            "name": "updated",
+            "type": "java.util.Date",
+            "value": "2012-11-28T17:57:57.000+0100"
+        },
+        "priority": {
+            "name": "priority",
+            "type": "com.atlassian.jira.issue.priority.Priority",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/priority/4",
+                "name": "Minor"
+            }
+        },
+        "description": {
+            "name": "description",
+            "type": "java.lang.String",
+            "value": "On http://map.company.com/de/search/Physiotherapie%20in%20der%20N%C3%A4he%20Z%C3%BCrich?page=6 this adress is wrong:\r\nBereschnaja Tatjana (856 m)\r\nBahnhofstrasse Zürich Hauptbahnhof 87, 8001 Zürich\r\nTelefon 076 345 37 07\r\n\r\nOn http://yellow.company.com/de/d/Zuerich/8001/Physiotherapie/Bereschnaja-Tatjana-g2TjwxSriNlDG-xO7zdXCw?what=Physiotherapie&where=Z%C3%BCrich you find the correct one:\r\nBereschnaja Tatjana\r\nPhysiotherapie Rehabilitation\r\nPhysiotherapie und Rehabilitation\r\nBahnhofstrasse 87 Zürich Hauptbahnhof\r\n8001 Zürich\r\n\r\nAs you can see, the adress should be \"Bahnhofstrasse 87\" and not \"Hauptbahnhof 87\".\r\nBy the way: Why is there \"Hauptbahnhof\", \"Bahnhofstrasse 87\" is not within the \"Hauptbahnhof\".\r\n\r\nThomas Thut"
+        },
+        "duedate": {
+            "name": "duedate",
+            "type": "java.util.Date"
+        },
+        "customfield_10020": {
+            "name": "Date of First Response",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+        },
+        "customfield_10451": {
+            "name": "Order",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 11990
+        },
+        "customfield_10450": {
+            "name": "Rank",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 8666
+        },
+        "watcher": {
+            "name": "watcher",
+            "type": "watcher",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/issue/WS-1230/watchers",
+                "isWatching": false,
+                "watchCount": 0
+            }
+        },
+        "customfield_10452": {
+            "name": "Order",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 11085
+        },
+        "worklog": {
+            "name": "worklog",
+            "type": "worklog",
+            "value": []
+        },
+        "customfield_10100": {
+            "name": "Release Version History",
+            "type": "com.pyxis.greenhopper.jira:greenhopper-releasedmultiversionhistory"
+        },
+        "customfield_10650": {
+            "name": "Task Status",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/customFieldOption/10040",
+                "value": "Analysis"
+            }
+        },
+        "status": {
+            "name": "status",
+            "type": "com.atlassian.jira.issue.status.Status",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/status/1",
+                "name": "Open"
+            }
+        },
+        "labels": {
+            "name": "labels",
+            "type": "com.atlassian.jira.issue.label.Label",
+            "value": []
+        },
+        "customfield_10552": {
+            "name": "Bonfire Url",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:url"
+        },
+        "customfield_10551": {
+            "name": "Zendesk ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "assignee": {
+            "name": "assignee",
+            "type": "com.opensymphony.user.User"
+        },
+        "links": {
+            "name": "links",
+            "type": "issuelinks",
+            "value": []
+        },
+        "attachment": {
+            "name": "attachment",
+            "type": "attachment",
+            "value": []
+        },
+        "sub-tasks": {
+            "name": "sub-tasks",
+            "type": "issuelinks",
+            "value": []
+        },
+        "project": {
+            "name": "project",
+            "type": "com.atlassian.jira.project.Project",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/project/WS",
+                "key": "WS",
+                "name": "Web Suche",
+                "roles": {}
+            }
+        },
+        "environment": {
+            "name": "environment",
+            "type": "java.lang.String"
+        },
+        "customfield_10053": {
+            "name": "Story Points (old)",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        },
+        "components": {
+            "name": "components",
+            "type": "com.atlassian.jira.bc.project.component.ProjectComponent",
+            "value": []
+        },
+        "comment": {
+            "name": "comment",
+            "type": "com.atlassian.jira.issue.fields.CommentSystemField",
+            "value": [
+                {
+                    "self": "https://jira.example.com/rest/api/latest/comment/74940",
+                    "author": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "body": "As discussed this is a bug on map.company.com and will be fixed within our map improvements which happen in mid October.",
+                    "updateAuthor": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "created": "2012-09-13T14:56:35.000+0200",
+                    "updated": "2012-09-13T14:56:35.000+0200"
+                },
+                {
+                    "self": "https://jira.example.com/rest/api/latest/comment/76909",
+                    "author": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "body": "Map fixes are delayed a bit. We start working on it early november.",
+                    "updateAuthor": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "created": "2012-10-25T10:24:50.000+0200",
+                    "updated": "2012-10-25T10:24:50.000+0200"
+                },
+                {
+                    "self": "https://jira.example.com/rest/api/latest/comment/78690",
+                    "author": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user90",
+                        "name": "user90",
+                        "displayName": "Thomas Thut",
+                        "active": true
+                    },
+                    "body": "http://map.company.com/de/search/Physiotherapie%20in%20der%20N%C3%A4he%20Z%C3%BCrich?page=6 seams to be fixed: http://screencast.com/t/0co8lwSdwcP\r\n\r\nMagic or forgotten comment?",
+                    "updateAuthor": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user90",
+                        "name": "user90",
+                        "displayName": "Thomas Thut",
+                        "active": true
+                    },
+                    "created": "2012-11-15T11:53:08.000+0100",
+                    "updated": "2012-11-15T11:53:08.000+0100"
+                },
+                {
+                    "self": "https://jira.example.com/rest/api/latest/comment/78697",
+                    "author": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "body": "Data change: bahnhof was removed but bug is still open.",
+                    "updateAuthor": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "created": "2012-11-15T14:34:23.000+0100",
+                    "updated": "2012-11-15T14:34:23.000+0100"
+                },
+                {
+                    "self": "https://jira.example.com/rest/api/latest/comment/79250",
+                    "author": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "body": "https://trello.com/c/mcTpgv4k",
+                    "updateAuthor": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "created": "2012-11-28T17:57:57.000+0100",
+                    "updated": "2012-11-28T17:57:57.000+0100"
+                }
+            ]
+        },
+        "customfield_10150": {
+            "name": "Units",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        }
+    },
+    "transitions": "https://jira.example.com/rest/api/latest/issue/WS-1230/transitions"
+}

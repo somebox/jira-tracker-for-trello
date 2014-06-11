@@ -1,0 +1,389 @@
+{
+  "expand": "renderedFields,names,schema,transitions,operations,editmeta,changelog",
+  "id": "35317",
+  "self": "https://jira.company.com/rest/api/latest/issue/35317",
+  "key": "SYS-1916",
+  "fields": {
+    "summary": "Change redirect for mobile devices",
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "issuetype": {
+      "self": "https://jira.company.com/rest/api/2/issuetype/25",
+      "id": "25",
+      "description": "",
+      "iconUrl": "https://jira.company.com/images/icons/issuetypes/bug.png",
+      "name": "Operations",
+      "subtask": false
+    },
+    "votes": {
+      "self": "https://jira.company.com/rest/api/2/issue/SYS-1916/votes",
+      "votes": 0,
+      "hasVoted": false
+    },
+    "resolution": {
+      "self": "https://jira.company.com/rest/api/2/resolution/1",
+      "id": "1",
+      "description": "A fix for this issue is checked into the tree and tested.",
+      "name": "Fixed"
+    },
+    "resolutiondate": "2012-10-01T17:38:08.000+0200",
+    "timespent": null,
+    "reporter": {
+      "self": "https://jira.company.com/rest/api/2/user?username=user90",
+      "name": "user90",
+      "emailAddress": "Thomas.Thut@company.com",
+      "avatarUrls": {
+        "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+        "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+        "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+        "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+      },
+      "displayName": "Thomas Thut",
+      "active": true
+    },
+    "aggregatetimeoriginalestimate": null,
+    "updated": "2013-01-04T11:03:48.000+0100",
+    "created": "2012-08-07T09:53:22.000+0200",
+    "description": "Current situation: (lb: company.com main website dispatcher)\n\nRedirect to http://mobile.company.com (strip away existing urls)\n\nRequested situation:\n\nRedirect to http://mobile.{whatitwasbefore}/{original-url}\n",
+    "priority": {
+      "self": "https://jira.company.com/rest/api/2/priority/4",
+      "iconUrl": "https://jira.company.com/images/icons/priorities/minor.png",
+      "name": "Minor",
+      "id": "4"
+    },
+    "duedate": null,
+    "issuelinks": [],
+    "customfield_10450": "7891",
+    "watches": {
+      "self": "https://jira.company.com/rest/api/2/issue/SYS-1916/watchers",
+      "watchCount": 6,
+      "isWatching": false
+    },
+    "customfield_10751": null,
+    "subtasks": [],
+    "customfield_10100": null,
+    "customfield_10750": null,
+    "status": {
+      "self": "https://jira.company.com/rest/api/2/status/6",
+      "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+      "iconUrl": "https://jira.company.com/images/icons/statuses/closed.png",
+      "name": "Closed",
+      "id": "6"
+    },
+    "customfield_10091": null,
+    "workratio": -1,
+    "customfield_10551": null,
+    "assignee": {
+      "self": "https://jira.company.com/rest/api/2/user?username=lcl50101",
+      "name": "lcl50101",
+      "emailAddress": "user@company.com",
+      "avatarUrls": {
+        "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+        "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+        "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+        "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+      },
+      "displayName": "user",
+      "active": true
+    },
+    "customfield_10553": null,
+    "customfield_10250": null,
+    "customfield_10550": null,
+    "customfield_10251": null,
+    "aggregatetimeestimate": null,
+    "project": {
+      "self": "https://jira.company.com/rest/api/2/project/SYS",
+      "id": "10145",
+      "key": "SYS",
+      "name": "System Engineering",
+      "avatarUrls": {
+        "16x16": "https://jira.company.com/secure/projectavatar?size=xsmall&pid=10145&avatarId=10010",
+        "24x24": "https://jira.company.com/secure/projectavatar?size=small&pid=10145&avatarId=10010",
+        "32x32": "https://jira.company.com/secure/projectavatar?size=medium&pid=10145&avatarId=10010",
+        "48x48": "https://jira.company.com/secure/projectavatar?pid=10145&avatarId=10010"
+      }
+    },
+    "timeestimate": null,
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "lastViewed": null,
+    "components": [],
+    "comment": {
+      "startAt": 0,
+      "maxResults": 8,
+      "total": 8,
+      "comments": [
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73566",
+          "id": "73566",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user123",
+            "name": "user123",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "user's view:\n\n* With mobile device: Result on google => goes to main website instead of search result (BAD -> agreed :-)\n* Proposal: Use mobile pool directly, no rewrite, mobile team rewrites themselves.\n\n",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-07T10:05:53.000+0200",
+          "updated": "2012-08-07T10:05:53.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73567",
+          "id": "73567",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "I've collected information for you, but I'd be happy if you can solve this issue, so that I don't do a big change before moving away.",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-07T10:50:46.000+0200",
+          "updated": "2012-08-07T10:50:46.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73568",
+          "id": "73568",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "user:\n\nWhen accessing company.com with mobile, either redirect to mobile.company.com (including rest of the URL) OR\ndirectly use the mobile pool (pool.use(\"mobile-...\") in LB).\n\n\n\n",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-07T10:53:57.000+0200",
+          "updated": "2012-08-07T10:53:57.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73569",
+          "id": "73569",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "Proposal: Meet tomorrow (2012-08-08) with user, , user.name and change the load balancer rule \"company.com main website dispatcher\".\n\n\n",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user85",
+            "name": "user85",
+            "emailAddress": "user.name@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-07T10:55:25.000+0200",
+          "updated": "2012-08-07T10:55:25.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73574",
+          "id": "73574",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user33",
+            "name": "user33",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "When the user click on 'Classic' button on m.company.com (i.company.com), we set the cookie 'mobile' with value 'no' .\n\nDomain '.company.com', Expiry: time() + 3 months\n\n",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user33",
+            "name": "user33",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-07T16:40:24.000+0200",
+          "updated": "2012-08-07T16:40:24.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73575",
+          "id": "73575",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user33",
+            "name": "user33",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "To save a meeting, here is a quick action plan business logic and handle there the deep linking",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=user33",
+            "name": "user33",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-07T17:25:10.000+0200",
+          "updated": "2012-08-08T17:23:07.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73601",
+          "id": "73601",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=lcl50101",
+            "name": "lcl50101",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "Mobile Team (Vasile) has set up new Virtual Servers on Apache and made some code changes to handle this request.\nLoadBalancer rule (company.com main website dispatcher) amended to use the pool directly for mobile clients. Cookie check also amended to be more informative.",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=lcl50101",
+            "name": "lcl50101",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-09T14:10:30.000+0200",
+          "updated": "2012-08-09T14:35:08.000+0200"
+        },
+        {
+          "self": "https://jira.company.com/rest/api/2/issue/35317/comment/73602",
+          "id": "73602",
+          "author": {
+            "self": "https://jira.company.com/rest/api/2/user?username=lcl50101",
+            "name": "lcl50101",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "body": "Waiting for mid and long term steps to be implemented.",
+          "updateAuthor": {
+            "self": "https://jira.company.com/rest/api/2/user?username=lcl50101",
+            "name": "lcl50101",
+            "emailAddress": "user@company.com",
+            "avatarUrls": {
+              "16x16": "https://secure.gravatar.com/avatar/xxx?d=mm&s=16",
+              "24x24": "https://secure.gravatar.com/avatar/xxx?d=mm&s=24",
+              "32x32": "https://secure.gravatar.com/avatar/xxx?d=mm&s=32",
+              "48x48": "https://secure.gravatar.com/avatar/xxx?d=mm&s=48"
+            },
+            "displayName": "user",
+            "active": true
+          },
+          "created": "2012-08-09T14:45:52.000+0200",
+          "updated": "2012-08-09T14:45:52.000+0200"
+        }
+      ]
+    },
+    "timeoriginalestimate": null,
+    "aggregatetimespent": null
+  }
+}

@@ -80,7 +80,7 @@ describe "jira 5" do
     end
 
     it "parses the description" do
-      @ticket.description.should =~ /local.ch main website dispatcher/
+      @ticket.description.should =~ /company.com main website dispatcher/
     end
 
     it "parses the issue_type" do

@@ -97,7 +97,7 @@ describe Bot::TrackedCard do
     it "should import details" do
       pending "dropping jira 4 support"
       @tracked_card.import_content_from_jira('WS-1230')
-      @tracked_card.trello_card.name.should =~ /WS-1230: Adress mismatch on map.local.ch/
+      @tracked_card.trello_card.name.should =~ /WS-1230: Adress mismatch on map.company.com/
     end
   end
 

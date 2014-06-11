@@ -1,0 +1,221 @@
+{
+    "expand": "html",
+    "self": "https://jira.company.com/rest/api/latest/issue/WS-1080",
+    "key": "WS-1080",
+    "fields": {
+        "summary": {
+            "name": "summary",
+            "type": "java.lang.String",
+            "value": "iPad: scroll issues with enlarged map view"
+        },
+        "timetracking": {
+            "name": "timetracking",
+            "type": "com.atlassian.jira.issue.fields.TimeTrackingSystemField"
+        },
+        "customfield_10081": {
+            "name": "Epic/Theme",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:labels"
+        },
+        "customfield_10082": {
+            "name": "Rank (Obsolete)",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        },
+        "issuetype": {
+            "name": "issuetype",
+            "type": "com.atlassian.jira.issue.issuetype.IssueType",
+            "value": {
+                "self": "https://jira.company.com/rest/api/latest/issueType/17",
+                "name": "Technical task",
+                "subtask": true
+            }
+        },
+        "customfield_10080": {
+            "name": "Flagged",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes"
+        },
+        "votes": {
+            "name": "votes",
+            "type": "com.atlassian.jira.issue.fields.VotesSystemField",
+            "value": {
+                "self": "https://jira.company.com/rest/api/latest/issue/WS-1080/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        },
+        "fixVersions": {
+            "name": "fixVersions",
+            "type": "com.atlassian.jira.project.version.Version",
+            "value": [
+                {
+                    "self": "https://jira.company.com/rest/api/latest/version/11043",
+                    "id": 11043,
+                    "name": "Website",
+                    "archived": false,
+                    "released": false
+                }
+            ]
+        },
+        "customfield_10140": {
+            "name": "ZendeskID",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:readonlyfield"
+        },
+        "reporter": {
+            "name": "reporter",
+            "type": "com.opensymphony.user.User",
+            "value": {
+                "self": "https://jira.company.com/rest/api/latest/user?username=user65",
+                "name": "user65",
+                "displayName": "Hugo Schotman",
+                "active": true
+            }
+        },
+        "customfield_10350": {
+            "name": "Global Rank",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 2138
+        },
+        "created": {
+            "name": "created",
+            "type": "java.util.Date",
+            "value": "2012-03-23T17:43:21.000+0100"
+        },
+        "updated": {
+            "name": "updated",
+            "type": "java.util.Date",
+            "value": "2012-11-23T17:04:28.000+0100"
+        },
+        "description": {
+            "name": "description",
+            "type": "java.lang.String",
+            "value": "On the iPad, When the map view is expanded:\r\n- There is no hint that there is more content one can scroll to underneath the map.\r\n- It is difficult to scroll because draggin on the map - which takes up most space - will pan the map view.\r\n\r\nSuggestion:\r\nShow the top of the entries in the result list underneath the map.\r\nThat way the user knows that there is more to scroll to and they can tap-and-drag on the visible content underneath the map without much risk of draggin inside the map."
+        },
+        "customfield_10020": {
+            "name": "Date of First Response",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+        },
+        "customfield_10451": {
+            "name": "Order",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 9699
+        },
+        "customfield_10450": {
+            "name": "Rank",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 6805
+        },
+        "watcher": {
+            "name": "watcher",
+            "type": "watcher",
+            "value": {
+                "self": "https://jira.company.com/rest/api/latest/issue/WS-1080/watchers",
+                "isWatching": false,
+                "watchCount": 0
+            }
+        },
+        "customfield_10452": {
+            "name": "Order",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 8912
+        },
+        "worklog": {
+            "name": "worklog",
+            "type": "worklog",
+            "value": []
+        },
+        "customfield_10100": {
+            "name": "Release Version History",
+            "type": "com.pyxis.greenhopper.jira:greenhopper-releasedmultiversionhistory"
+        },
+        "status": {
+            "name": "status",
+            "type": "com.atlassian.jira.issue.status.Status",
+            "value": {
+                "self": "https://jira.company.com/rest/api/latest/status/1",
+                "name": "Open"
+            }
+        },
+        "customfield_10650": {
+            "name": "Task Status",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        },
+        "customfield_10552": {
+            "name": "Bonfire Url",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:url"
+        },
+        "parent": {
+            "name": "parent",
+            "type": "issuelinks",
+            "value": {
+                "issueKey": "WS-1399",
+                "issue": "https://jira.company.com/rest/api/latest/issue/WS-1399",
+                "type": {
+                    "name": "Parent",
+                    "direction": "INBOUND"
+                }
+            }
+        },
+        "customfield_10551": {
+            "name": "Zendesk ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "links": {
+            "name": "links",
+            "type": "issuelinks",
+            "value": []
+        },
+        "attachment": {
+            "name": "attachment",
+            "type": "attachment",
+            "value": [
+                {
+                    "self": "https://jira.company.com/rest/api/latest/attachment/17133",
+                    "filename": "screenshot-1.jpg",
+                    "author": {
+                        "self": "https://jira.company.com/rest/api/latest/user?username=user65",
+                        "name": "user65",
+                        "displayName": "Hugo Schotman",
+                        "active": true
+                    },
+                    "created": "2012-03-23T17:43:38.000+0100",
+                    "size": 773519,
+                    "mimeType": "image/jpeg",
+                    "content": "https://jira.company.com/secure/attachment/17133/screenshot-1.jpg",
+                    "thumbnail": "https://jira.company.com/secure/thumbnail/17133/_thumb_17133.png"
+                }
+            ]
+        },
+        "customfield_10553": {
+            "name": "Zendesk (company.zendesk.com) ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "customfield_10550": {
+            "name": "Zendesk ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "sub-tasks": {
+            "name": "sub-tasks",
+            "type": "issuelinks",
+            "value": []
+        },
+        "project": {
+            "name": "project",
+            "type": "com.atlassian.jira.project.Project",
+            "value": {
+                "self": "https://jira.company.com/rest/api/latest/project/WS",
+                "key": "WS",
+                "name": "Web Suche",
+                "roles": {}
+            }
+        },
+        "comment": {
+            "name": "comment",
+            "type": "com.atlassian.jira.issue.fields.CommentSystemField",
+            "value": []
+        },
+        "customfield_10150": {
+            "name": "Units",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        }
+    },
+    "transitions": "https://jira.company.com/rest/api/latest/issue/WS-1080/transitions"
+}

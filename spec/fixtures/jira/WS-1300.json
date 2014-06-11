@@ -1,0 +1,268 @@
+{
+    "expand": "html",
+    "self": "https://jira.example.com/rest/api/latest/issue/WS-1300",
+    "key": "WS-1300",
+    "fields": {
+        "summary": {
+            "name": "summary",
+            "type": "java.lang.String",
+            "value": "map flyout a bit broken"
+        },
+        "timetracking": {
+            "name": "timetracking",
+            "type": "com.atlassian.jira.issue.fields.TimeTrackingSystemField"
+        },
+        "customfield_10081": {
+            "name": "Epic/Theme",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:labels"
+        },
+        "customfield_10082": {
+            "name": "Rank (Obsolete)",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        },
+        "issuetype": {
+            "name": "issuetype",
+            "type": "com.atlassian.jira.issue.issuetype.IssueType",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/issueType/1",
+                "name": "Bug",
+                "subtask": false
+            }
+        },
+        "customfield_10080": {
+            "name": "Flagged",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes"
+        },
+        "votes": {
+            "name": "votes",
+            "type": "com.atlassian.jira.issue.fields.VotesSystemField",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/issue/WS-1300/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        },
+        "fixVersions": {
+            "name": "fixVersions",
+            "type": "com.atlassian.jira.project.version.Version",
+            "value": [
+                {
+                    "self": "https://jira.example.com/rest/api/latest/version/11144",
+                    "id": 11144,
+                    "description": "Restaurant Guide",
+                    "name": "Restaurant",
+                    "archived": false,
+                    "released": false
+                }
+            ]
+        },
+        "resolution": {
+            "name": "resolution",
+            "type": "com.atlassian.jira.issue.resolution.Resolution",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/resolution/1",
+                "name": "Fixed"
+            }
+        },
+        "security": {
+            "name": "security",
+            "type": "com.atlassian.jira.issue.security.IssueSecurityLevel"
+        },
+        "resolutiondate": {
+            "name": "resolutiondate",
+            "type": "java.util.Date",
+            "value": "2012-10-31T16:25:04.000+0100"
+        },
+        "customfield_10140": {
+            "name": "ZendeskID",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:readonlyfield"
+        },
+        "reporter": {
+            "name": "reporter",
+            "type": "com.opensymphony.user.User",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/user?username=user32",
+                "name": "user32",
+                "displayName": "user",
+                "active": true
+            }
+        },
+        "customfield_10350": {
+            "name": "Global Rank",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 4654
+        },
+        "created": {
+            "name": "created",
+            "type": "java.util.Date",
+            "value": "2012-10-02T15:20:35.000+0200"
+        },
+        "updated": {
+            "name": "updated",
+            "type": "java.util.Date",
+            "value": "2012-11-26T11:41:18.000+0100"
+        },
+        "priority": {
+            "name": "priority",
+            "type": "com.atlassian.jira.issue.priority.Priority",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/priority/4",
+                "name": "Minor"
+            }
+        },
+        "description": {
+            "name": "description",
+            "type": "java.lang.String",
+            "value": "http://screencast.com/t/bj59PYsBfN"
+        },
+        "duedate": {
+            "name": "duedate",
+            "type": "java.util.Date"
+        },
+        "customfield_10020": {
+            "name": "Date of First Response",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+        },
+        "customfield_10451": {
+            "name": "Order",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 12239
+        },
+        "customfield_10450": {
+            "name": "Rank",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 8913
+        },
+        "watcher": {
+            "name": "watcher",
+            "type": "watcher",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/issue/WS-1300/watchers",
+                "isWatching": false,
+                "watchCount": 0
+            }
+        },
+        "customfield_10452": {
+            "name": "Order",
+            "type": "com.pyxis.greenhopper.jira:gh-global-rank",
+            "value": 11332
+        },
+        "worklog": {
+            "name": "worklog",
+            "type": "worklog",
+            "value": []
+        },
+        "customfield_10100": {
+            "name": "Release Version History",
+            "type": "com.pyxis.greenhopper.jira:greenhopper-releasedmultiversionhistory"
+        },
+        "customfield_10650": {
+            "name": "Task Status",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/customFieldOption/10040",
+                "value": "Analysis"
+            }
+        },
+        "status": {
+            "name": "status",
+            "type": "com.atlassian.jira.issue.status.Status",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/status/6",
+                "name": "Closed"
+            }
+        },
+        "labels": {
+            "name": "labels",
+            "type": "com.atlassian.jira.issue.label.Label",
+            "value": []
+        },
+        "customfield_10552": {
+            "name": "Bonfire Url",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:url"
+        },
+        "customfield_10551": {
+            "name": "Zendesk ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "assignee": {
+            "name": "assignee",
+            "type": "com.opensymphony.user.User"
+        },
+        "links": {
+            "name": "links",
+            "type": "issuelinks",
+            "value": []
+        },
+        "attachment": {
+            "name": "attachment",
+            "type": "attachment",
+            "value": []
+        },
+        "customfield_10553": {
+            "name": "Zendesk (company.zendesk.com) ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "customfield_10550": {
+            "name": "Zendesk ticket Reference",
+            "type": "net.customware.plugins.connector.atlassian.jira-connector-plugin:remotesystem-id-customfield"
+        },
+        "sub-tasks": {
+            "name": "sub-tasks",
+            "type": "issuelinks",
+            "value": []
+        },
+        "project": {
+            "name": "project",
+            "type": "com.atlassian.jira.project.Project",
+            "value": {
+                "self": "https://jira.example.com/rest/api/latest/project/WS",
+                "key": "WS",
+                "name": "Web Suche",
+                "roles": {}
+            }
+        },
+        "environment": {
+            "name": "environment",
+            "type": "java.lang.String"
+        },
+        "customfield_10053": {
+            "name": "Story Points (old)",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        },
+        "components": {
+            "name": "components",
+            "type": "com.atlassian.jira.bc.project.component.ProjectComponent",
+            "value": []
+        },
+        "comment": {
+            "name": "comment",
+            "type": "com.atlassian.jira.issue.fields.CommentSystemField",
+            "value": [
+                {
+                    "self": "https://jira.example.com/rest/api/latest/comment/77951",
+                    "author": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "body": "Fixed by hiding overlapping text",
+                    "updateAuthor": {
+                        "self": "https://jira.example.com/rest/api/latest/user?username=user56",
+                        "name": "user56",
+                        "displayName": "Georg Kunz",
+                        "active": true
+                    },
+                    "created": "2012-10-31T16:25:04.000+0100",
+                    "updated": "2012-10-31T16:25:04.000+0100"
+                }
+            ]
+        },
+        "customfield_10150": {
+            "name": "Units",
+            "type": "com.atlassian.jira.plugin.system.customfieldtypes:float"
+        }
+    },
+    "transitions": "https://jira.example.com/rest/api/latest/issue/WS-1300/transitions"
+}
