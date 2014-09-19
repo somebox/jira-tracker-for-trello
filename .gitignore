@@ -8,3 +8,4 @@ log/*.log
 .rvmrc
 .ruby-version
 .ruby-gemset
+config/br.yml

@@ -82,9 +82,11 @@ module Bot
       jira_ticket = self.get_jira_ticket(ticket_id)
       
       # update card name and description
-      description = converted_markup(jira_ticket.description)
-      description = "** Imported from #{jira_ticket.web_link} **\n\n----\n\n#{description}"
-      self.trello_card.description = description
+      if jira_ticket.description
+        description = converted_markup(jira_ticket.description)
+        description = "** Imported from #{jira_ticket.web_link} **\n\n----\n\n#{description}"
+        self.trello_card.description = description
+      end
       self.trello_card.name = jira_ticket.summary
       self.trello_card.save
 
