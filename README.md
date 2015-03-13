@@ -29,8 +29,10 @@ A script runs periodically, and checks relevant Trello tickets for tracking comm
 
 * Create a Trello user and add it to one or more boards.
 * Create a JIRA user and give it access to one or more projects.
-* Create a configuration file `config/config.yml`. (See `config/config-example.yml` for details). You will need authentication details to access to the APIs of both Trello and JIRA. 
-* set up a cron job to run the script `bin/trello_jira_bot` periodically (for example, every 10 minutes).
+* Create a configuration file `config/config.yml`. (See `config/config-example.yml` for details). You will need authentication details to access to the APIs of both Trello and JIRA.
+* Install all gems using `boundle install` in the folder of the repository.
+* set up a cron job to run the script `bin/trello_jira_bot` periodically (for example, every 10 minutes). On os x run the following command:
+`echo “10 * * * * $(pwd)/bin/trello-jira-bot” | crontab`
 
 ### Authentication Config Notes ##
 
@@ -50,7 +52,7 @@ Create a 'bot' user on Trello, and add it to one or more boards. Trello requires
 
 ## Usage ##
 
-A Trello card can be set up to track a set of JIRA tickets. The bot should have access to the board, and be assigned to the ticket. Commands are issued by adding comments to a ticket and mentioning the bot by name:
+A Trello card can be set up to track a set of JIRA tickets. The bot should have access to the board, and be assigned to the ticket. Commands are issued by adding comments to a trello card and mentioning the bot by name:
 
     @jirabot track SYS-1234
 
@@ -59,6 +61,8 @@ The bot will respond to with a comment on the ticket:
     SYS-1234 is now being tracked.
 
 Once tracked, updates to the JIRA ticket will be posted to the Trello card as comments. 
+
+Here are available commands:
 
 * `track SYS-1536` : JIRAbot will begin tracking updates to this ticket on the given Trello card.
 
