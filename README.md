@@ -30,7 +30,7 @@ A script runs periodically, and checks relevant Trello tickets for tracking comm
 * Create a Trello user and add it to one or more boards.
 * Create a JIRA user and give it access to one or more projects.
 * Create a configuration file `config/config.yml`. (See `config/config-example.yml` for details). You will need authentication details to access to the APIs of both Trello and JIRA.
-* Install all gems using `boundle install` in the folder of the repository.
+* Install all gems using `bundle install` in the folder of the repository.
 * set up a cron job to run the script `bin/trello_jira_bot` periodically (for example, every 10 minutes). On os x run the following command:
 `echo “10 * * * * $(pwd)/bin/trello-jira-bot” | crontab`
 
