@@ -1,4 +1,8 @@
 # Jira Tracker for Trello
+
+## NOTE: As of 2016-12-10, this project is still installable, and should be usable. However, I am not actively using it. I may not be able to respond to issues and bugs, but I am happy to review and merge pull requests. And if you would like to take over as a maintainer, just file an issue and let me know! -Jeremy
+
+
 ## Trello/Jira Integration
 
 This project exists to improve workflow between Trello and Jira. It is perfect for an agile team that uses Trello for daily development and sprint planning, but must interact with JIRA for other teams or bug reports. From experience, I have learned it is very hard to track issues in both systems at the same time, and this solution helps.
@@ -23,7 +27,7 @@ A script runs periodically, and checks relevant Trello tickets for tracking comm
 
 ## Screenshot ##
 
-![trello test board](http://dl.dropbox.com/u/385855/Screenshots/8pys.png)
+![trello test board](https://cloud.githubusercontent.com/assets/7750/21074990/b08242fe-bf07-11e6-8a09-253956e6a9e3.png)
 
 ## Installation ##
 

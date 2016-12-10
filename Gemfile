@@ -10,13 +10,13 @@ gem "activemodel"
 gem "rspec"
 gem "rake"
 
-gem "ruby-trello", :git => 'git@github.com:somebox/ruby-trello.git'
+gem "ruby-trello",'0.4.4.1'
 gem "awesome_print"
 #gem "rest-client", :git => 'git://github.com/rest-client/rest-client.git'
 gem "rest-client"
 gem "moneta"
 gem "api_cache"
-gem "json"
+gem "json", '1.8.2'
 
 group :development do
   gem 'wirble'
